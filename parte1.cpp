@@ -68,7 +68,7 @@ int main ()
             Data *vetor = vetorRandomData(tam, vetorCompleto);
             quicksort(vetor, tam, &numComparacaoData, &numTrocasData);
 
-            delete vetor;
+            delete vetor;//
         }
 
         numTrocasData = numTrocasData / 5;
