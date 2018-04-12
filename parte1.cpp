@@ -52,32 +52,43 @@ int main ()
         int numTrocasData = 0;
 
         int tam = vetorTam[i];
+        double tempoInt = 0;
+        double tempoData = 0;
         for(int j = 0; j < 5; ++i)
         {
             int *vetor = vetorRandomInt(tam, vetorCompleto);
+            clock_t t1 = clock();
             quicksort(vetor, tam, &numComparacaoInt, &numTrocasInt);
+            clock_t t2 = clock();
 
+            tempoInt += (t2 - t1) * 1000.0 / CLOCKS_PER_SEC;
             delete vetor;
         }
 
         numTrocasInt = numTrocasInt / 5;
         numComparacaoInt = numComparacaoInt / 5;
+        tempoInt = tempoInt / 5;
 
         for(int j = 0; j < 5; ++i)
         {
             Data *vetor = vetorRandomData(tam, vetorCompleto);
+            clock_t t1 = clock();
             quicksort(vetor, tam, &numComparacaoData, &numTrocasData);
+            clock_t t2 = clock();
+
+            tempoData += (t2 - t1) * 1000.0 / CLOCKS_PER_SEC;
 
             delete vetor;//
         }
 
         numTrocasData = numTrocasData / 5;
         numComparacaoData = numComparacaoData / 5;
+        tempoData = tempoData / 5;
 
-        saida<<"Tam = "<<tam<<" :\n"<<"Int:\n"<<"Numero de comparacoes medio: "<<numComparacaoInt<<"\nNumero de trocas medio: "<<numTrocasInt<<endl;
-        saida<<"Data: \n"<<"Numero de comparacoes medio: "<<numComparacaoData<<"\nNumero de trocas medio: "<<numTrocasData<<endl;
+        saida<<"Tam = "<<tam<<" :\n"<<"  Int:\n"<<"Numero de comparacoes medio: "<<numComparacaoInt<<"\nNumero de trocas medio: "<<numTrocasInt<<"\nTempo medio: "<<tempoInt<<endl;
+        saida<<"  Data: \n"<<"Numero de comparacoes medio: "<<numComparacaoData<<"\nNumero de trocas medio: "<<numTrocasData<<"\nTempo medio: "<<tempoData<<endl;
     }
 
-
+    saida.close();
     return 0;
 }

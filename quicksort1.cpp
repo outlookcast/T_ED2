@@ -153,7 +153,7 @@ void quicksort(Data *vetor, int n,  int *comparacoes, int *numCopias)
 
 
     swap(vetor[maior], vetor[n-1]);//coloca o maior elemento no final do vetor.
-    *numTrocas += 1;
+    *numCopias += 1;
     quicksort(vetor, 0, n-2, comparacoes, numCopias);
 }
 void swap(Data *valor1, Data *valor2)
