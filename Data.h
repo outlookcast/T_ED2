@@ -14,7 +14,6 @@ public:
 
     Data(int questionID,int userID,string date, int score, string title);
     Data();
-    ~Data();
     //sets
     void setQuestionID(int questionID);
     void setUserID(int userID);

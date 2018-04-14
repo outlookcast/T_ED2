@@ -1,0 +1,22 @@
+Tam = 100 :
+  Int:
+    Numero de comparacoes medio: 952
+    Numero de trocas medio: 177
+    Tempo medio: 0.011
+
+  Data: 
+    Numero de comparacoes medio: 927
+    Numero de trocas medio: 261
+    Tempo medio: 0.0528
+
+Tam = 200 :
+  Int:
+    Numero de comparacoes medio: 2230
+    Numero de trocas medio: 397
+    Tempo medio: 0.0226
+
+  Data: 
+    Numero de comparacoes medio: 2214
+    Numero de trocas medio: 564
+    Tempo medio: 0.1082
+

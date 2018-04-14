@@ -17,8 +17,6 @@ Data::Data()
     this->questionID = -1;
 }
 
-//---------- Destrutor ---------- //
-Data::~Data(){}
 
 //---------- Set's ---------- //
 void Data::setQuestionID(int questionID)
