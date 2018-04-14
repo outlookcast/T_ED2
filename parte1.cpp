@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include "quickSort1.h"
 #include "leitura.h"
+#include "HashInt.h"
+#include "HashEncad.h"
 
 using namespace std;
 
@@ -39,6 +41,7 @@ vector<int> readFile2(char * fileName)
 
 int main ()
 {
+    /*
     Data *vetorCompleto = readFile(607357);         //Armazena todas as estradas do arquivo
     vector<int> vetorTam = readFile2("entrada.txt");
     ofstream saida;
@@ -106,6 +109,21 @@ int main ()
 	cout<<"Fim dos testes\n";
     saida.close();
 	delete []vetorCompleto;
+	*/
+	HashEncad * a = new HashEncad(5);
+	a->inserir(3);
+	a->inserir(4);
+	a->inserir(10);
+	a->inserir(20);
+	a->inserir(25);
+	a->imprimir();
+	cout<<"-----------------------------"<<endl;
+	a->remover(3);
+	a->imprimir();
+	cout<<"-----------------------------"<<endl;
+	a->remover(25);
+	a->imprimir();
+	cout<<"Numero de colisoes: "<<a->getNumColisoes();
     return 0;
 }
 

@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "quickSort1.h"
 #include "leitura.h"
+#include "HashEncad.h"
 Data* readFile(int tam)
 {
     Data *data = new Data[tam];
