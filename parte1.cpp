@@ -127,10 +127,12 @@ int main ()
     delete hash;
 */
     Tags * tags = leituraParte2();
+    /*
     for(int i=0;i<1885079;i++)
     {
         cout<<tags[i].getQuestionID()<<" "<<tags[i].getTag()<<endl;
-    }
+    }*/
+    cout<<tags[1885079-1].getQuestionID()<<" "<<tags[1885079-1].getTag()<<endl;
     delete [] tags;
     return 0;
 }
