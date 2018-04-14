@@ -11,6 +11,7 @@
 #include "leitura.h"
 #include "HashInt.h"
 #include "HashEncad.h"
+#include "No.h"
 
 using namespace std;
 
@@ -110,20 +111,20 @@ int main ()
     saida.close();
 	delete []vetorCompleto;
 	*/
-	HashEncad * a = new HashEncad(5);
-	a->inserir(3);
-	a->inserir(4);
-	a->inserir(10);
-	a->inserir(20);
-	a->inserir(25);
-	a->imprimir();
-	cout<<"-----------------------------"<<endl;
-	a->remover(3);
-	a->imprimir();
-	cout<<"-----------------------------"<<endl;
-	a->remover(25);
-	a->imprimir();
-	cout<<"Numero de colisoes: "<<a->getNumColisoes();
+	Data * data2 = readFile(607357);
+	Data * data = vetorRandomData(100,data2);
+	HashEncad * hash = new HashEncad(25);
+
+	for(int i=0;i<100;i++)
+    {
+        hash->inserir(data[i].getQuestionID());
+    }
+    hash->imprimir();
+    cout<<"Numero de Colisoes: "<<hash->getNumColisoes()<<endl;
+    delete [] data;
+    delete [] data2;
+    delete hash;
+
     return 0;
 }
 

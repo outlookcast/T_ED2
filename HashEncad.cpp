@@ -13,7 +13,7 @@ HashEncad::HashEncad(int tam)
 
 HashEncad::~HashEncad()
 {
-    delete [] vetor;
+    delete [] this->vetor;
 }
 
 int HashEncad::funcaoHash(int val)
