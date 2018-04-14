@@ -26,7 +26,7 @@ int HashInt::funcaoHash(int val)
 
 int HashInt::funcaoHash2(int val)
 {
-    return val*val % this->tam;
+    return (val*val)+1 % this->tam;
 }
 
 int HashInt::buscaTrataColisao(int val,int posicao)
@@ -116,7 +116,12 @@ void HashInt::inserir(int val)
     }
     else
     {
-        this->trataColisaoSondagemDuploHash(val,posicao);
+        if( this->qnt < this->tam)
+        {
+            this->numColisoes++;
+            this->trataColisaoSondagemDuploHash(val,posicao);
+        }
+
     }
 
 }
@@ -146,12 +151,6 @@ void HashInt::imprimir()
 
 void HashInt::trataColisaoSondagemQuadratica(int val, int posicao)
 {
-    if(this->qnt == this->tam)
-    {
-        cout<<"Array lotado!"<<endl;
-    }
-    else
-    {
         int i = 1;
         while(true)
         {
@@ -175,17 +174,11 @@ void HashInt::trataColisaoSondagemQuadratica(int val, int posicao)
             }
             i++;
         }
-    }
 }
 
 void HashInt::trataColisaoSondagemDuploHash(int val, int posicao)
 {
-    if(this->qnt == this->tam)
-    {
-        cout<<"Array lotado!"<<endl;
-    }
-    else
-    {
+
         int i = 1;
         while(true)
         {
@@ -193,16 +186,6 @@ void HashInt::trataColisaoSondagemDuploHash(int val, int posicao)
             int f2 = this->funcaoHash2(val);
             //Calcula o novo hash
             int pos = (f1 + i*f2) % this->tam;
-            if(pos > this->tam)
-            {
-                //Se o tamanho da posição for maior q o tamanho do vetor então diminuimos até encontrar a posição relacionada
-                while(true)
-                {
-                    pos = pos - this->tam;
-                    if(pos < this->tam)
-                        break;
-                }
-            }
             if(this->array[pos] == -1)
             {
                 this->array[pos] = val;
@@ -211,7 +194,16 @@ void HashInt::trataColisaoSondagemDuploHash(int val, int posicao)
             }
             i++;
         }
-    }
+}
+
+int HashInt::getNumColisoes()
+{
+    return this->numColisoes;
+}
+
+int HashInt::getQnt()
+{
+    return this->qnt;
 }
 
 
