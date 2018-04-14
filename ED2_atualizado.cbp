@@ -36,6 +36,8 @@
 		<Unit filename="Data.h" />
 		<Unit filename="Hash.cpp" />
 		<Unit filename="Hash.h" />
+		<Unit filename="HashInt.cpp" />
+		<Unit filename="HashInt.h" />
 		<Unit filename="leitura.cpp" />
 		<Unit filename="leitura.h" />
 		<Unit filename="parte1.cpp" />
