@@ -10,8 +10,9 @@
 #include "quickSort1.h"
 #include "leitura.h"
 #include "HashEncad.h"
-Data* readFile(int tam)
+Data* readFile()
 {
+    int tam = 607357;
     Data *data = new Data[tam];
     ifstream ip("Questions.csv");
 

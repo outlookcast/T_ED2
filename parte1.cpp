@@ -12,6 +12,7 @@
 #include "HashInt.h"
 #include "HashEncad.h"
 #include "No.h"
+#include "Tags.h"
 
 using namespace std;
 
@@ -110,10 +111,10 @@ int main ()
 	cout<<"Fim dos testes\n";
     saida.close();
 	delete []vetorCompleto;
-	*/
-	Data * data2 = readFile(607357);
+
+	Data * data2 = readFile();
 	Data * data = vetorRandomData(100,data2);
-	HashEncad * hash = new HashEncad(25);
+	HashEncad * hash = new HashEncad(1475);
 
 	for(int i=0;i<100;i++)
     {
@@ -124,7 +125,13 @@ int main ()
     delete [] data;
     delete [] data2;
     delete hash;
-
+*/
+    Tags * tags = leituraParte2();
+    for(int i=0;i<1885079;i++)
+    {
+        cout<<tags[i].getQuestionID()<<" "<<tags[i].getTag()<<endl;
+    }
+    delete [] tags;
     return 0;
 }
 

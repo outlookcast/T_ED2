@@ -42,8 +42,11 @@
 		<Unit filename="HashInt.h" />
 		<Unit filename="No.cpp" />
 		<Unit filename="No.h" />
+		<Unit filename="Tags.cpp" />
+		<Unit filename="Tags.h" />
 		<Unit filename="leitura.cpp" />
 		<Unit filename="leitura.h" />
+		<Unit filename="leitura_parte_2.cpp" />
 		<Unit filename="parte1.cpp" />
 		<Unit filename="quickSort1.h" />
 		<Unit filename="quicksort1.cpp" />
