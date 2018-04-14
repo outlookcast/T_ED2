@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "quickSort1.h"
 #include "leitura.h"
+
 using namespace std;
 
 //Leitura do arquivo de endrada com os tamanhos a serem testados

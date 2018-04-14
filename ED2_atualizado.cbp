@@ -39,11 +39,8 @@
 		<Unit filename="leitura.cpp" />
 		<Unit filename="leitura.h" />
 		<Unit filename="parte1.cpp" />
-		<Unit filename="parte3.cpp" />
 		<Unit filename="quickSort1.h" />
 		<Unit filename="quicksort1.cpp" />
-		<Unit filename="quicksort2.cpp" />
-		<Unit filename="quicksort3.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
