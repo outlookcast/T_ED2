@@ -9,10 +9,11 @@ class HashInt
 private:
     int * array;
     int tam;
+    int qnt;
     int funcaoHash(int val);
     int buscaTrataColisao(int val,int posicao);
     void trataColisaoSondagemLinear(int val,int posicao);
-
+    void trataColisaoSondagemQuadratica(int val, int posicao);
 
 public:
     ~HashInt();
@@ -21,7 +22,6 @@ public:
     void inserir(int val);
     void remover(int val);
     void imprimir();
-
 };
 
 #endif // HASHINT_H_INCLUDED

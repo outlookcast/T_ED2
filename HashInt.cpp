@@ -11,6 +11,7 @@ HashInt::HashInt(int tam)
     {
         this->array[i] = -1;
     }
+    this->qnt = 0;
 }
 
 HashInt::~HashInt()
@@ -59,6 +60,7 @@ void HashInt::trataColisaoSondagemLinear(int val,int posicao)
         if(this->array[i] == -1)
         {
             this->array[i] = val;
+            this->qnt++;
             cout<<"Inserido na posição: "<<i<<endl;
             break;
         }
@@ -71,6 +73,7 @@ void HashInt::trataColisaoSondagemLinear(int val,int posicao)
             if(this->array[j] == -1)
             {
                 this->array[j] = val;
+                this->qnt++;
                 cout<<"Inserido na posição: "<<j<<endl;
                 break;
             }
@@ -104,11 +107,13 @@ void HashInt::inserir(int val)
     {
         this->array[posicao] = val;
         cout<<"Inserido na posição: "<<posicao<<endl;
+        this->qnt++;
     }
     else
     {
-        this->trataColisaoSondagemLinear(val,posicao);
+        this->trataColisaoSondagemQuadratica(val,posicao);
     }
+
 }
 
 void HashInt::remover(int val)
@@ -132,3 +137,40 @@ void HashInt::imprimir()
         cout<<this->array[i]<<" ";
     cout<<endl;
 }
+
+
+void HashInt::trataColisaoSondagemQuadratica(int val, int posicao)
+{
+    if(this->qnt == this->tam)
+    {
+        cout<<"Array lotado!"<<endl;
+    }
+    else
+    {
+        int i = 1;
+        while(true)
+        {
+            int aux = this->funcaoHash(val);
+            int pos = aux + i + i*i;
+            if(pos > this->tam)
+            {
+                //Se o tamanho da posição for maior q o tamanho do vetor então diminuimos até encontrar a posição relacionada
+                while(true)
+                {
+                    pos = pos - this->tam;
+                    if(pos < this->tam)
+                        break;
+                }
+            }
+            if(this->array[pos] == -1)
+            {
+                this->array[pos] = val;
+                this->qnt++;
+                break;
+            }
+            i++;
+        }
+    }
+}
+
+
