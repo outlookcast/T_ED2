@@ -13,6 +13,8 @@
 #include "HashEncad.h"
 #include "No.h"
 #include "Tags.h"
+#include "answer.h"
+#include "leitura3.h"
 
 using namespace std;
 
@@ -126,15 +128,29 @@ int main ()
     delete [] data2;
     delete hash;
 */
-    Tags * tags = leituraParte2();
-    /*
-    for(int i=0;i<1885079;i++)
-    {
-        cout<<tags[i].getQuestionID()<<" "<<tags[i].getTag()<<endl;
-    }*/
-    cout<<tags[1885079-1].getQuestionID()<<" "<<tags[1885079-1].getTag()<<endl;
-    delete [] tags;
+    Answer *Answer = readFile3();
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -31,7 +31,7 @@ Tags * leituraParte2()
         getline(ip,trash); /// Ignora primeira linha do arquivo
         int cont = 1;
         int contadorDeLinhas = 0;
-        while(contadorDeLinhas<1885079)
+        while(contadorDeLinhas<1885079-1)
         {
             if(cont == 1)
             {
