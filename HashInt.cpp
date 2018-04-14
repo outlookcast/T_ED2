@@ -24,6 +24,11 @@ int HashInt::funcaoHash(int val)
     return val % this->tam;
 }
 
+int HashInt::funcaoHash2(int val)
+{
+    return val*val % this->tam;
+}
+
 int HashInt::buscaTrataColisao(int val,int posicao)
 {
     int i;
@@ -111,7 +116,7 @@ void HashInt::inserir(int val)
     }
     else
     {
-        this->trataColisaoSondagemQuadratica(val,posicao);
+        this->trataColisaoSondagemDuploHash(val,posicao);
     }
 
 }
@@ -152,6 +157,42 @@ void HashInt::trataColisaoSondagemQuadratica(int val, int posicao)
         {
             int aux = this->funcaoHash(val);
             int pos = aux + i + i*i;
+            if(pos > this->tam)
+            {
+                //Se o tamanho da posição for maior q o tamanho do vetor então diminuimos até encontrar a posição relacionada
+                while(true)
+                {
+                    pos = pos - this->tam;
+                    if(pos < this->tam)
+                        break;
+                }
+            }
+            if(this->array[pos] == -1)
+            {
+                this->array[pos] = val;
+                this->qnt++;
+                break;
+            }
+            i++;
+        }
+    }
+}
+
+void HashInt::trataColisaoSondagemDuploHash(int val, int posicao)
+{
+    if(this->qnt == this->tam)
+    {
+        cout<<"Array lotado!"<<endl;
+    }
+    else
+    {
+        int i = 1;
+        while(true)
+        {
+            int f1 = this->funcaoHash(val);
+            int f2 = this->funcaoHash2(val);
+            //Calcula o novo hash
+            int pos = (f1 + i*f2) % this->tam;
             if(pos > this->tam)
             {
                 //Se o tamanho da posição for maior q o tamanho do vetor então diminuimos até encontrar a posição relacionada

@@ -11,9 +11,11 @@ private:
     int tam;
     int qnt;
     int funcaoHash(int val);
+    int funcaoHash2(int val);
     int buscaTrataColisao(int val,int posicao);
     void trataColisaoSondagemLinear(int val,int posicao);
     void trataColisaoSondagemQuadratica(int val, int posicao);
+    void trataColisaoSondagemDuploHash(int val, int posicao);
 
 public:
     ~HashInt();
