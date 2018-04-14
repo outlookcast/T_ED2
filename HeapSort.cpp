@@ -1,6 +1,7 @@
 #include <iostream>
+#include "heapSorte.h"
+
 using namespace std;
-#include "heapSort.h"
 
 void montaHeap(int *vetor, int tam)
 {
@@ -13,16 +14,16 @@ void montaHeap(int *vetor, int tam)
         if((2*i+1) < tam)                //Filho a direita
           if(vetor[2*i + 1] > vetor[i]) //Verifica propriedade de Heap
           {
-			   //Troca elemento			
+			   //Troca elemento
                int aux = vetor[2*i + 1];
                vetor[2*i + 1] = vetor[i];
                vetor[i] = aux;
 
-               montaHeap(&vetor[2*i + 1], tam-(2*i + 1)); 
+               montaHeap(&vetor[2*i + 1], tam-(2*i + 1));
 
 			   if(vetor[2*i + 1] > vetor[i]) //Verifica propriedade de Heap
          	   {
-			   //Troca elemento			
+			   //Troca elemento
                int aux = vetor[2*i + 1];
                vetor[2*i + 1] = vetor[i];
                vetor[i] = aux;
@@ -43,7 +44,7 @@ void montaHeap(int *vetor, int tam)
 
 			     if(vetor[2*i + 1] > vetor[i]) //Verifica propriedade de Heap
          	     {
-			        //Troca elemento			
+			        //Troca elemento
                     int aux = vetor[2*i + 1];
                     vetor[2*i + 1] = vetor[i];
                     vetor[i] = aux;
