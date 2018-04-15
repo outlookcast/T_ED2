@@ -14,30 +14,30 @@ void montaHeap(int *vetor, int tam, int *numComparacoes, int *numTrocas)
 		{
           if(vetor[2*i + 1] > vetor[i]) //Verifica propriedade de Heap
           {
-			   //Troca elemento			
+			   //Troca elemento
                int aux = vetor[2*i + 1];
                vetor[2*i + 1] = vetor[i];
                vetor[i] = aux;
 
-               montaHeap(&vetor[2*i + 1], tam-(2*i + 1)); 
+               montaHeap(&vetor[2*i + 1], tam-(2*i + 1),numComparacoes,numTrocas);
 
 			   if(vetor[2*i + 1] > vetor[i]) //Verifica propriedade de Heap
          	   {
-			   //Troca elemento			
+			   //Troca elemento
                		int aux = vetor[2*i + 1];
                		vetor[2*i + 1] = vetor[i];
                		vetor[i] = aux;
 					*numTrocas +=3;
 
                }
-			   *numComparacoes +=1;	
-			   *numTrocas +=3;	
+			   *numComparacoes +=1;
+			   *numTrocas +=3;
 		  }
 		  *numComparacoes +1;
 		}
 
         if((2*i+2) < tam)             //Filho a esquerda
-        {    
+        {
 			if(vetor[2*i + 2] > vetor[i])//Verifica propriedade de Heap
             {
 				 //Troca elemento
@@ -45,23 +45,23 @@ void montaHeap(int *vetor, int tam, int *numComparacoes, int *numTrocas)
                  vetor[2*i + 2] = vetor[i];
                  vetor[i] = aux;
 
-                 montaHeap(&vetor[2*i + 2], tam-(2*i + 2));
+                 montaHeap(&vetor[2*i + 2], tam-(2*i + 2),numComparacoes,numTrocas);
 
 			     if(vetor[2*i + 1] > vetor[i]) //Verifica propriedade de Heap
          	     {
-			        //Troca elemento			
+			        //Troca elemento
                     int aux = vetor[2*i + 1];
                     vetor[2*i + 1] = vetor[i];
                     vetor[i] = aux;
 					*numTrocas +=3;
                  }
 				 *numComparacoes +1;
-				 *numTrocas +=3;	
+				 *numTrocas +=3;
             }
 			*numComparacoes +1;
 		}
-    
-		*numComparacoes+=3;	
+
+		*numComparacoes+=3;
 	}
 
 }
