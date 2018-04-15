@@ -1,12 +1,13 @@
 #include <iostream>
 #include <stdlib.h>
 #include "quickSort2.h"
+#include "time.h"
 using namespace std;
 
 void quicksort2(int *vetor, int tam, int *comparacoes, int *numCopias)
 {
 	int maior = 0;
-
+	srand(time(NULL));
 	for(int i = 1; i < tam; ++i)
 	{
 		if(vetor[i] > vetor[maior])
