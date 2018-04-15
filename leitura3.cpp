@@ -99,14 +99,14 @@ Answer* readFile3()
     }
 }
 
-Answer *randomReadAux(int tam, Answer *answer)
+Answer *randomReadAux(int num, Answer *answer)
 {
-    Answer *randomArray = new Answer[tam];
+    Answer *randomArray = new Answer[num];
     int j;
     int *vet = new int[987272];
     for (int i=0;i<987272;i++)
         vet[i]=-1;
-    for (int i=0; i<tam;)
+    for (int i=0; i<num;)
     {
         j = rand() % 987272;
         if (vet[j] == -1)
@@ -124,10 +124,10 @@ Answer *randomReadAux(int tam, Answer *answer)
     return randomArray;
 }
 
-Answer* randomRead(int tam)
+Answer* randomRead(int num) //Retorna Answers aleatórias em um vetor de tamanho num
 {
     Answer *answer = readFile3();
-    Answer *answerAleatorio = randomReadAux(tam, answer);
+    Answer *answerAleatorio = randomReadAux(num, answer);
     delete []answer;
     return answerAleatorio;
 }

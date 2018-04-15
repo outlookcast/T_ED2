@@ -16,6 +16,7 @@
 #include "answer.h"
 #include "leitura3.h"
 
+
 using namespace std;
 
 //Leitura do arquivo de endrada com os tamanhos a serem testados
@@ -128,8 +129,8 @@ int main ()
     delete [] data2;
     delete hash;
 */
-    Answer *answer = randomRead(5000);
-    cout << answer[5000-1].getAnswerID();
+    Tags *tag = leituraRandomParte2(500000);
+    cout<< tag[500000-1].getQuestionID();
     return 0;
 }
 

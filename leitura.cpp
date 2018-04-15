@@ -185,3 +185,5 @@ int* vetorRandomInt(int tam, Data *aux)
 }
 
 
+
+
