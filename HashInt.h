@@ -13,7 +13,7 @@ private:
     int qnt; /// Quantidade de itens na Hash
     long long int numColisoes; /// Numero de colisoes gerados na Hash
     int funcaoHash(int val); /// Função 1 de Hashing
-    int funcaoHash2(int val); /// Função 2 de Hashing
+    int funcaoHash2(int val,int i); /// Função 2 de Hashing
     int buscaTrataColisao(int val,int posicao); /// Retorna indice de um valor por busca linear (colisao)
     void trataColisaoSondagemLinear(int val,int posicao); /// Sondagem linear
     void trataColisaoSondagemQuadratica(int val, int posicao); /// Sondagem Quadrática

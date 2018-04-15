@@ -29,9 +29,9 @@ int HashInt::funcaoHash(int val)
     return val % this->tam;
 }
 
-int HashInt::funcaoHash2(int val)
+int HashInt::funcaoHash2(int val,int i)
 {
-    return (val*val)+1 % this->tam;
+    return (i*this->funcaoHash(val)+1);
 }
 
 int HashInt::buscaTrataColisao(int val,int posicao)
@@ -192,10 +192,11 @@ void HashInt::trataColisaoSondagemDuploHash(int val, int posicao)
     int i = 1;
     while(true)
     {
+        this->numColisoes++;
         int f1 = this->funcaoHash(val);
-        int f2 = this->funcaoHash2(val);
+        int f2 = this->funcaoHash2(val,i);
         //Calcula o novo hash
-        int pos = (f1 + i*f2) % this->tam;
+        int pos = (f1 + f2) % this->tam;
         if(this->array[pos] == -1)
         {
             this->array[pos] = val;

@@ -110,7 +110,7 @@ void PT1_Cenario_4()
     {
         hashHashEncad1000->inserir(vetor1000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento linear N=1.000): "<<hashHashEncad1000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Encadeamento Separado N=1.000): "<<hashHashEncad1000->getNumColisoes()<<endl;
     delete hashHashEncad1000;
 
 
@@ -120,7 +120,7 @@ void PT1_Cenario_4()
     {
         hashHashEncad5000->inserir(vetor5000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento linear N=5.000): "<<hashHashEncad5000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Encadeamento Separado N=5.000): "<<hashHashEncad5000->getNumColisoes()<<endl;
     delete hashHashEncad5000;
 
 
@@ -130,7 +130,7 @@ void PT1_Cenario_4()
     {
         hashHashEncad10000->inserir(vetor10000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento linear N=10.000): "<<hashHashEncad10000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Encadeamento SeparadoN=10.000): "<<hashHashEncad10000->getNumColisoes()<<endl;
     delete hashHashEncad10000;
 
 
@@ -140,7 +140,7 @@ void PT1_Cenario_4()
     {
         hashHashEncad50000->inserir(vetor50000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento linear N=50.000): "<<hashHashEncad50000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Encadeamento Separado N=50.000): "<<hashHashEncad50000->getNumColisoes()<<endl;
     delete hashHashEncad50000;
 
 
@@ -150,7 +150,7 @@ void PT1_Cenario_4()
     {
         hashHashEncad100000->inserir(vetor100000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento linear N=100.000): "<<hashHashEncad100000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Encadeamento Separado N=100.000): "<<hashHashEncad100000->getNumColisoes()<<endl;
     delete hashHashEncad100000;
 
 
@@ -160,7 +160,7 @@ void PT1_Cenario_4()
     {
         hashHashEncad500000->inserir(vetor500000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento linear N=500.000): "<<hashHashEncad500000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Encadeamento Separado N=500.000): "<<hashHashEncad500000->getNumColisoes()<<endl;
     delete hashHashEncad500000;
 
 
@@ -177,7 +177,7 @@ void PT1_Cenario_4()
     cout<<"///  -------- INICIO DOS TESTES PARA TRATAMENTO QUADRÁTICO -------- ///"<<endl;
 
     ///Testando para N=1.000 -> Hash Quadratico
-    HashInt * hashQuadratico1000 = new HashInt(1100,2);
+    HashInt * hashQuadratico1000 = new HashInt(H1k,2);
     for(int i=0;i<1000;i++)
     {
         hashQuadratico1000->inserir(vetor1000[i].getQuestionID());
@@ -186,15 +186,127 @@ void PT1_Cenario_4()
     delete hashQuadratico1000;
 
 
-    ///  ---------------------------------------- INICIO DOS TESTES PARA TRATAMENTO QUADRÁTICO ---------------------------------------- ///
-    cout<<"///  -------- INICIO DOS TESTES PARA TRATAMENTO QUADRÁTICO -------- ///"<<endl;
+    ///Testando para N=5.000 -> Hash Quadratico
+    HashInt * hashQuadratico5000 = new HashInt(H5k,2);
+    for(int i=0;i<5000;i++)
+    {
+        hashQuadratico5000->inserir(vetor5000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Quadratico N=1.000): "<<hashQuadratico5000->getNumColisoes()<<endl;
+    delete hashQuadratico5000;
+
+
+    ///Testando para N=10.000 -> Hash Quadratico
+    HashInt * hashQuadratico10000 = new HashInt(H10k,2);
+    for(int i=0;i<10000;i++)
+    {
+        hashQuadratico10000->inserir(vetor10000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Quadratico N=10.000): "<<hashQuadratico10000->getNumColisoes()<<endl;
+    delete hashQuadratico10000;
+
+
+    ///Testando para N=50.000 -> Hash Quadratico
+    HashInt * hashQuadratico50000 = new HashInt(H50k,2);
+    for(int i=0;i<50000;i++)
+    {
+        hashQuadratico50000->inserir(vetor50000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Quadratico N=50.000): "<<hashQuadratico50000->getNumColisoes()<<endl;
+    delete hashQuadratico50000;
+
+
+    ///Testando para N=100.000 -> Hash Quadratico
+    HashInt * hashQuadratico100000 = new HashInt(H100k,2);
+    for(int i=0;i<100000;i++)
+    {
+        hashQuadratico100000->inserir(vetor100000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Quadratico N=100.000): "<<hashQuadratico100000->getNumColisoes()<<endl;
+    delete hashQuadratico100000;
+
+
+    ///Testando para N=500.000 -> Hash Quadratico
+    HashInt * hashQuadratico500000 = new HashInt(H500k,2);
+    for(int i=0;i<500000;i++)
+    {
+        hashQuadratico500000->inserir(vetor500000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Quadratico N=500.000): "<<hashQuadratico500000->getNumColisoes()<<endl;
+    delete hashQuadratico500000;
+
+    ///  ---------------------------------------- FIM DOS TESTES PARA TRATAMENTO QUADRATICA ---------------------------------------- ///
+    cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO QUADRATICA -------- ///"<<endl;
+
 
     cout<<endl;
     cout<<endl;
     cout<<endl;
 
 
-/*
+    ///  ---------------------------------------- INICIO DOS TESTES PARA TRATAMENTO DUPLO HASH ---------------------------------------- ///
+    cout<<"///  -------- INICIO DOS TESTES PARA TRATAMENTO DUPLO HASH -------- ///"<<endl;
+
+
+    ///Testando para N=1.000 -> Hash Duplo Hash
+    HashInt * hashDuploHash1000 = new HashInt(H1k,3);
+    for(int i=0;i<1000;i++)
+    {
+        hashDuploHash1000->inserir(vetor1000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Duplo Hash N=1.000): "<<hashDuploHash1000->getNumColisoes()<<endl;
+    delete hashDuploHash1000;
+
+
+    ///Testando para N=5.000 -> Hash Duplo Hash
+    HashInt * hashDuploHash5000 = new HashInt(H5k,3);
+    for(int i=0;i<5000;i++)
+    {
+        hashDuploHash5000->inserir(vetor5000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Duplo Hash N=5.000): "<<hashDuploHash5000->getNumColisoes()<<endl;
+    delete hashDuploHash5000;
+
+
+    ///Testando para N=10.000 -> Hash Duplo Hash
+    HashInt * hashDuploHash10000 = new HashInt(H10k,3);
+    for(int i=0;i<10000;i++)
+    {
+        hashDuploHash10000->inserir(vetor10000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Duplo Hash N=10.000): "<<hashDuploHash10000->getNumColisoes()<<endl;
+    delete hashDuploHash10000;
+
+
+    ///Testando para N=50.000 -> Hash Duplo Hash
+    HashInt * hashDuploHash50000 = new HashInt(H50k,3);
+    for(int i=0;i<50000;i++)
+    {
+        hashDuploHash50000->inserir(vetor50000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Duplo Hash N=50.000): "<<hashDuploHash50000->getNumColisoes()<<endl;
+    delete hashDuploHash50000;
+
+
+    ///Testando para N=100.000 -> Hash Duplo Hash
+    HashInt * hashDuploHash100000 = new HashInt(H100k,3);
+    for(int i=0;i<100000;i++)
+    {
+        hashDuploHash100000->inserir(vetor100000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Duplo Hash N=100.000): "<<hashDuploHash100000->getNumColisoes()<<endl;
+    delete hashDuploHash100000;
+
+
+    ///  ---------------------------------------- FIM DOS TESTES PARA TRATAMENTO DUPLO HASH ---------------------------------------- ///
+    cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO DUPLO HASH -------- ///"<<endl;
+
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
+
+
+
     ///  ---------------------------------------- INICIO DOS TESTES PARA TRATAMENTO COALESCIDO ---------------------------------------- ///
     cout<<"///  -------- INICIO DOS TESTES PARA TRATAMENTO COALESCIDO -------- ///"<<endl;
 
@@ -205,7 +317,7 @@ void PT1_Cenario_4()
     {
         hashCoalescido1000->adicionaElemento(vetor1000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento Quadratica N=1.000): "<<hashCoalescido1000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Tratamento Coalescidos N=1.000): "<<hashCoalescido1000->getNumColisoes()<<endl;
     delete hashCoalescido1000;
 
 
@@ -215,7 +327,7 @@ void PT1_Cenario_4()
     {
         hashCoalescido5000->adicionaElemento(vetor5000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento Quadratica N=5.000): "<<hashCoalescido5000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Tratamento Coalescidos N=5.000): "<<hashCoalescido5000->getNumColisoes()<<endl;
     delete hashCoalescido5000;
 
 
@@ -225,7 +337,7 @@ void PT1_Cenario_4()
     {
         hashCoalescido10000->adicionaElemento(vetor10000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento Quadratica N=10.000): "<<hashCoalescido10000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Tratamento Coalescidos N=10.000): "<<hashCoalescido10000->getNumColisoes()<<endl;
     delete hashCoalescido10000;
 
 
@@ -235,7 +347,7 @@ void PT1_Cenario_4()
     {
         hashCoalescido50000->adicionaElemento(vetor50000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento Quadratica N=50.000): "<<hashCoalescido50000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Tratamento Coalescidos N=50.000): "<<hashCoalescido50000->getNumColisoes()<<endl;
     delete hashCoalescido50000;
 
 
@@ -245,7 +357,7 @@ void PT1_Cenario_4()
     {
         hashCoalescido100000->adicionaElemento(vetor100000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento Quadratica N=100.000): "<<hashCoalescido100000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Tratamento Coalescidos N=100.000): "<<hashCoalescido100000->getNumColisoes()<<endl;
     delete hashCoalescido100000;
 
 
@@ -255,12 +367,12 @@ void PT1_Cenario_4()
     {
         hashCoalescido500000->adicionaElemento(vetor500000[i].getQuestionID());
     }
-    cout<<"Numero de colisoes (Tratamento Quadratica N=500.000): "<<hashCoalescido500000->getNumColisoes()<<endl;
+    cout<<"Numero de colisoes (Tratamento Coalescidos N=500.000): "<<hashCoalescido500000->getNumColisoes()<<endl;
     delete hashCoalescido500000;
 
     ///  ---------------------------------------- FIM DOS TESTES PARA TRATAMENTO COALESCIDO ---------------------------------------- ///
     cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO TRATAMENTO COALESCIDO -------- ///"<<endl;
-*/
+
 
     delete [] vetor1000;
     delete [] vetor5000;
