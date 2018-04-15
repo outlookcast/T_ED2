@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 #include "merge.h"
 
@@ -11,7 +12,7 @@ void intercala(int *vetor, int inicio, int meio, int fim, int *numTrocas, int *n
 {
 	int tamVetorAux = (fim - inicio) + 1;
 	int *vetorAux = new int[tamVetorAux];  // vetor auxiliar.
-	
+
 	if(vetorAux == NULL)
 	{
 		cout<<"Erro ao alocar vetor.\n";
@@ -30,7 +31,7 @@ void intercala(int *vetor, int inicio, int meio, int fim, int *numTrocas, int *n
 			vetorAux[indAux] = vetor[indV1];
 			indAux += 1;
 			indV1 += 1;
-			
+
 		}
 		else
 		{
@@ -99,7 +100,7 @@ void merge(int *vetor, int inicio, int fim, int *numTrocas, int *numComparacoes)
 		merge(vetor, meio + 1, fim, numTrocas, numComparacoes);
 		intercala(vetor, inicio, meio, fim, numTrocas, numComparacoes);
 	}
-	
+
 	*numComparacoes += 1;
 
 }

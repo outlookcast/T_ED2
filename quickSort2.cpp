@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "quickSort2.h"
 using namespace std;
 
@@ -14,18 +15,18 @@ void quicksort2(int *vetor, int tam, int *comparacoes, int *numCopias)
 
 	swap2(&vetor[maior], &vetor[tam-1]);
 	quicksort2(vetor, 0, tam-2, comparacoes, numCopias);
-} 
+}
 
 void quicksort2(int *vetor, int inicio, int fim, int *comparacoes, int *numCopias)
 {
-	
+
 	if(inicio == fim)
 		return;
 
 	int ind1 = 	inicio + rand() % (fim - inicio);
 	int ind2 = inicio + rand() % (fim - inicio);
 	int ind3 = inicio + rand() % (fim - inicio);
-	
+
 	int num1 = vetor[ind1];
 	int num2 = vetor[ind2];
 	int num3 = vetor[ind3];
@@ -42,7 +43,7 @@ void quicksort2(int *vetor, int inicio, int fim, int *comparacoes, int *numCopia
 
 	swap2(&vetor[inicio], &vetor[indPivo]);
 
-	int inferior = inicio + 1; 
+	int inferior = inicio + 1;
 	int superior = fim;
 
     while(inferior <= superior)
@@ -93,8 +94,8 @@ void swap2(int *valor1, int *valor2)
 
 int mediana(int num1, int num2, int num3)
 {
-	int temp;	
-	
+	int temp;
+
 	if(num1 <= num2)
 	{
 		if(num2  > num3)
@@ -133,7 +134,7 @@ int mediana(int num1, int num2, int num3)
 				num2 = temp;
 
 			}
-		}		
+		}
 	}
 
 	return num2;
