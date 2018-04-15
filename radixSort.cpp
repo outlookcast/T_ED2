@@ -3,7 +3,7 @@
 #include "FilaCont.h"
 using namespace std;
 
-void radixSort(int *vetor, int tam)
+void radixSort(int *vetor, int tam, int *numTrocas)
 {
 
 	FilaCont vetorFila[10];
@@ -22,6 +22,7 @@ void radixSort(int *vetor, int tam)
 		for(int j = 0; j < tam; ++j)
 		{
 			vetorFila[(vetor[j] / fator) % 10].enqueue(vetor[j]);    //coloca na vetor[j] na posição coreta, ou seja, na fila corespondente ao digito que esta sendo considerado.
+			*numTrocas +=1;
 		}
 		
 		int t = 0;
@@ -32,6 +33,7 @@ void radixSort(int *vetor, int tam)
 			{
 				vetor[t] = vetorFila[j].dequeue();
 				t += 1;
+				*numTrocas +=1;
 			}
 		}
 
