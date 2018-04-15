@@ -73,6 +73,10 @@ void HashInt::trataColisaoSondagemLinear(int val,int posicao)
             this->qnt++;
             break;
         }
+        else
+        {
+            this->numColisoes++;
+        }
     }
     if(i==tam) //Chegou no final e nao encontrou posição livre, portanto volta ao início
     {
@@ -84,6 +88,10 @@ void HashInt::trataColisaoSondagemLinear(int val,int posicao)
                 this->array[j] = val;
                 this->qnt++;
                 break;
+            }
+            else
+            {
+                this->numColisoes++;
             }
         }
         if(j==posicao)
@@ -120,7 +128,6 @@ void HashInt::inserir(int val)
     {
         if( this->qnt < this->tam)
         {
-            this->numColisoes++;
             if(this->tipoDeColisao == 1)
             {
                 this->trataColisaoSondagemLinear(val,posicao);
@@ -163,28 +170,15 @@ void HashInt::imprimir()
 
 void HashInt::trataColisaoSondagemQuadratica(int val, int posicao)
 {
-    int i = 1;
-    while(true)
-    {
-        int aux = this->funcaoHash(val);
-        int pos = aux + i + i*i;
-        if(pos > this->tam)
-        {
-            //Se o tamanho da posição for maior q o tamanho do vetor então diminuimos até encontrar a posição relacionada
-            while(true)
-            {
-                pos = pos - this->tam;
-                if(pos < this->tam)
-                    break;
-            }
+    int index;
+
+    for (int i = 0; i < tam; i++) {
+        index = (val + i*i) % tam;
+        if (this->array[index] != -1) {
+            this->array[index] = val;
         }
-        if(this->array[pos] == -1)
-        {
-            this->array[pos] = val;
-            this->qnt++;
-            break;
-        }
-        i++;
+        else
+           numColisoes ++;
     }
 }
 

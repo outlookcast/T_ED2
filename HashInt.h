@@ -11,7 +11,7 @@ private:
     int tipoDeColisao;
     int tam; /// Tamanho do vetor da Hash
     int qnt; /// Quantidade de itens na Hash
-    int numColisoes; /// Numero de colisoes gerados na Hash
+    long long int numColisoes; /// Numero de colisoes gerados na Hash
     int funcaoHash(int val); /// Função 1 de Hashing
     int funcaoHash2(int val); /// Função 2 de Hashing
     int buscaTrataColisao(int val,int posicao); /// Retorna indice de um valor por busca linear (colisao)
