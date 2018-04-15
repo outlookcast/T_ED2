@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "leitura3.h"
 #include "answer.h"
+using namespace std;
 
 Answer* readFile3()
 {
@@ -30,9 +31,7 @@ Answer* readFile3()
         string trash;
         int c=0;
         int cont = 1;
-        bool fim = false;
         getline(ip,trash);
-        int i;
         int posicao = 0;
 
         while(ip.good() && c < tam)
@@ -96,16 +95,42 @@ Answer* readFile3()
         }
         ip.close();
         cout<<"Fim da leitura"<<endl;
-        cout<<"total: "<<c<<endl;
-        cout<<answer[987272-1].getQuestionID();
         return answer;
     }
 }
 
+Answer *randomReadAux(int tam, Answer *answer)
+{
+    Answer *randomArray = new Answer[tam];
+    int j;
+    int *vet = new int[987272];
+    for (int i=0;i<987272;i++)
+        vet[i]=-1;
+    for (int i=0; i<tam;)
+    {
+        j = rand() % 987272;
+        if (vet[j] == -1)
+        {
+            randomArray[i].setAnswerID(answer[j].getAnswerID());
+            randomArray[i].setDate(answer[j].getDate());
+            randomArray[i].setQuestionID(answer[j].getQuestionID());
+            randomArray[i].setScore(answer[j].getScore());
+            randomArray[i].setUserID(answer[j].getUserID());
+            i++;
+            vet[j] == 0;
+        }
+    }
+    delete [] vet;
+    return randomArray;
+}
 
-
-
-
+Answer* randomRead(int tam)
+{
+    Answer *answer = readFile3();
+    Answer *answerAleatorio = randomReadAux(tam, answer);
+    delete []answer;
+    return answerAleatorio;
+}
 
 
 

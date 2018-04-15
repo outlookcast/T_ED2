@@ -128,7 +128,8 @@ int main ()
     delete [] data2;
     delete hash;
 */
-    Answer *Answer = readFile3();
+    Answer *answer = randomRead(5000);
+    cout << answer[5000-1].getAnswerID();
     return 0;
 }
 
