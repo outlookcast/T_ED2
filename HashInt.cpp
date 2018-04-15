@@ -171,14 +171,18 @@ void HashInt::imprimir()
 void HashInt::trataColisaoSondagemQuadratica(int val, int posicao)
 {
     int index;
-
-    for (int i = 0; i < tam; i++) {
+    int i = 0;
+    while(true)
+    {
         index = (val + i*i) % tam;
-        if (this->array[index] != -1) {
+        if (this->array[index] == -1)
+        {
             this->array[index] = val;
+            break;
         }
         else
-           numColisoes ++;
+            this->numColisoes++;
+        i++;
     }
 }
 

@@ -173,6 +173,21 @@ void PT1_Cenario_4()
     cout<<endl;
 
 
+    ///  ---------------------------------------- INICIO DOS TESTES PARA TRATAMENTO QUADR햀ICO ---------------------------------------- ///
+    cout<<"///  -------- INICIO DOS TESTES PARA TRATAMENTO QUADR햀ICO -------- ///"<<endl;
+
+    ///Testando para N=1.000 -> Hash Quadratico
+    HashInt * hashQuadratico1000 = new HashInt(1100,2);
+    for(int i=0;i<1000;i++)
+    {
+        hashQuadratico1000->inserir(vetor1000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Quadratico N=1.000): "<<hashQuadratico1000->getNumColisoes()<<endl;
+    delete hashQuadratico1000;
+
+
+    ///  ---------------------------------------- INICIO DOS TESTES PARA TRATAMENTO QUADR햀ICO ---------------------------------------- ///
+    cout<<"///  -------- INICIO DOS TESTES PARA TRATAMENTO QUADR햀ICO -------- ///"<<endl;
 
     cout<<endl;
     cout<<endl;
