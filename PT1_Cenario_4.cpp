@@ -27,6 +27,8 @@ void PT1_Cenario_4()
     Data * vetor100000 = vetorRandomData(100000, vetorDeDados);
     Data * vetor500000 = vetorRandomData(500000, vetorDeDados);
 
+    /*
+
     ///  ---------------------------------------- INICIO DOS TESTES PARA TRATAMENTO LINEAR ---------------------------------------- ///
     cout<<"///  -------- INICIO DOS TESTES PARA TRATAMENTO LINEAR -------- ///"<<endl;
 
@@ -154,11 +156,32 @@ void PT1_Cenario_4()
     delete hashHashEncad500000;
 
 
-
     ///  ---------------------------------------- FIM DOS TESTES PARA TRATAMENTO ENCADEAMENTO SEPARADO ---------------------------------------- ///
     cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO ENCADEAMENTO SEPARADO -------- ///"<<endl;
 
 
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
+
+    */
+
+    ///  ---------------------------------------- INICIO DOS TESTES PARA TRATAMENTO QUADR햀ICA ---------------------------------------- ///
+    cout<<"///  -------- INICIO DOS TESTES PARA TRATAMENTO QUADR햀ICA -------- ///"<<endl;
+
+
+    ///Testando para N=1.000 -> Hash Linear
+    HashInt * hashQuadratica1000 = new HashInt(1000,2);
+    for(int i=0;i<1000;i++)
+    {
+        hashQuadratica1000->inserir(vetor1000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Quadratica N=1.000): "<<hashQuadratica1000->getNumColisoes()<<endl;
+    delete hashQuadratica1000;
+
+
+    ///  ---------------------------------------- FIM DOS TESTES PARA TRATAMENTO QUADR햀ICA ---------------------------------------- ///
+    cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO TRATAMENTO QUADR햀ICA -------- ///"<<endl;
 
 
     delete [] vetor1000;
