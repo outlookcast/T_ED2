@@ -128,9 +128,53 @@ int main ()
     delete [] data;
     delete [] data2;
     delete hash;
-*/
-    Tags *tag = leituraRandomParte2(500000);
-    cout<< tag[500000-1].getQuestionID();
+
+    ///Parte 2 leitura de Answers e Tags
+    int chave1, chave2, tam;
+    cout<<"Qual arquivo ler: "<< endl;
+    cout<<"1- Answers.csv: "<< endl;
+    cout<<"2- Tags.csv:"<< endl;
+    cin>> chave2;
+    cout<<"Quantidade de dados para ler: "<<endl;
+    cin<< tam;
+    if (chave2 == 1)
+    {
+        cout<< "Tratamento do Hash: "<< endl;
+        cout<< "1- Sondagem Linear: ": << endl;
+        cout<< "2- Sondagem Quadratica: "<< endl;
+        cout<< "3- Duplo Hash: "<<endl;
+        cout<< "4- Sondagem em lista: ";
+        cin>> chave1;
+        switch chave1
+        {
+            case 1:
+                    HashInt testeHash = new HashInt();
+                    Answer *answer = randomRead(tam);
+                    for (int i=0; i<tam; i++)
+                    {
+                        testeHash.inserir()
+                    }
+
+
+        }
+    }
+        if (chave2 == 2)
+    {
+        cout<< "Tratamento do Hash: "<< endl;
+        cout<< "1- Sondagem Linear: ": << endl;
+        cout<< "2- Sondagem Quadratica: "<< endl;
+        cout<< "3- Duplo Hash: "<<endl;
+        cout<< "4- Sondagem em lista: ";
+        cin>> chave1;
+        switch chave1
+        {
+            case 1:
+
+
+        }
+    }
+    ///Parte 2 leitura fim
+    */
     return 0;
 }
 
