@@ -15,7 +15,7 @@
 #include "Tags.h"
 #include "answer.h"
 #include "leitura3.h"
-
+#include "HashAnswer.h"
 
 using namespace std;
 
@@ -47,7 +47,20 @@ vector<int> readFile2(char * fileName)
 
 int main ()
 {
-    PT1_Cenario_4();
+   /// PT1_Cenario_4();
+    Answer * data = readFile3();
+    HashAnswer * hash = new HashAnswer(4521);
+    for(int i=0;i<100;i++)
+    {
+        hash->inserir(data[i]);
+    }
+    hash->frequenciaDeTodosUsuarios();
+
+
+    cout<<"Numero de Colisoes: "<<hash->getNumColisoes();
+
+    delete hash;
+    delete [] data;
 /*
     Data *vetorCompleto = readFile(607357);         //Armazena todas as estradas do arquivo
     vector<int> vetorTam = readFile2("entrada.txt");
@@ -177,6 +190,7 @@ int main ()
     }
     ///Parte 2 leitura fim
 */
+
     return 0;
 }
 

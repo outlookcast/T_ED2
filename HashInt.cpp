@@ -101,19 +101,6 @@ void HashInt::trataColisaoSondagemLinear(int val,int posicao)
     }
 }
 
-int HashInt::busca(int val)
-{
-    int posicao = this->funcaoHash(val);
-    if(this->array[posicao] == val)
-    {
-        return posicao;
-    }
-    else
-    {
-        return buscaTrataColisao(val,posicao);
-    }
-
-}
 
 void HashInt::inserir(int val)
 {
@@ -217,4 +204,42 @@ int HashInt::getQnt()
     return this->qnt;
 }
 
+bool HashInt::busca(int val)
+{
+    int posicao = this->funcaoHash(val);
+    if(this->array[posicao] == val)
+    {
+        return true;
+    }
+    else
+    {
+        return this->buscaTrataColisao2(val,posicao);
+    }
+}
 
+bool HashInt::buscaTrataColisao2(int val,int posicao)
+{
+    int i;
+    for(i=posicao; i<this->tam; i++)
+    {
+        if(this->array[i] == val)
+        {
+            return true;
+        }
+    }
+    if(i==tam) //Chegou no final e nao encontrou posição livre, portanto volta ao início
+    {
+        int j;
+        for(j=0; j<posicao; j++)
+        {
+            if(this->array[j] == val)
+            {
+                return true;
+            }
+        }
+        if(j==posicao)
+        {
+            return false;
+        }
+    }
+}

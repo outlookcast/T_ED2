@@ -1,13 +1,14 @@
 #ifndef ANSWER_H
 #define ANSWER_H
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Answer
 {
     public:
         Answer();
-        virtual ~Answer();
+        ~Answer();
 
         //sets
         void setAnswerID(int answerID);
@@ -22,6 +23,10 @@ class Answer
         string getDate();
         int getQuestionID();
         int getScore();
+        vector<Answer> getLista();
+
+        void inserirNaLista(Answer answer);
+        void imprime();
 
     private:
         int answerID;
@@ -29,6 +34,7 @@ class Answer
         string date;
         int questionID;
         int score;
+        vector<Answer> lista;
 };
 
 #endif // ANSWER_H

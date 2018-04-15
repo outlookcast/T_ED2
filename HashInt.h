@@ -19,10 +19,12 @@ private:
     void trataColisaoSondagemQuadratica(int val, int posicao); /// Sondagem Quadrática
     void trataColisaoSondagemDuploHash(int val, int posicao); /// Sondagem por duplo hash
 
+
 public:
     ~HashInt();
     HashInt(int tam,int tipoDeColisao);
-    int busca(int val);
+    bool busca(int val);
+    bool buscaTrataColisao2(int val,int posicao);
     void inserir(int val);
     void remover(int val);
     void imprimir();

@@ -1,6 +1,8 @@
 #include "answer.h"
+#include <vector>
 
 
+using namespace std;
 
 Answer::Answer()
 {
@@ -56,15 +58,32 @@ int Answer::getScore()
     return score;
 }
 
+vector<Answer> Answer::getLista()
+{
+    return this->lista;
+}
 
+void Answer::inserirNaLista(Answer answer)
+{
+    this->lista.push_back(answer);
+}
 
-
-
-
-
-
-
-
-
+/*
+void Answer::imprime()
+{
+    cout<<" -> ";
+    if(this->lista.size() == 0)
+    {
+        cout<<"Lista vazia!";
+    }
+    else
+    {
+        for(int i=0;i<this->lista.size();i++)
+        {
+            cout<<this->lista[i].getUserID()<<" ";
+        }
+    }
+}
+*/
 
 
