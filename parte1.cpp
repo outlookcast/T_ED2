@@ -44,9 +44,11 @@ vector<int> readFile2(char * fileName)
     }
 }
 
+
 int main ()
 {
-    /*
+    PT1_Cenario_4();
+/*
     Data *vetorCompleto = readFile(607357);         //Armazena todas as estradas do arquivo
     vector<int> vetorTam = readFile2("entrada.txt");
     ofstream saida;
@@ -174,7 +176,7 @@ int main ()
         }
     }
     ///Parte 2 leitura fim
-    */
+*/
     return 0;
 }
 

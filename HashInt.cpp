@@ -3,7 +3,7 @@
 
 using namespace std;
 
-HashInt::HashInt(int tam)
+HashInt::HashInt(int tam,int tipoDeColisao)
 {
     this->tam = tam;
     this->array = new int [tam];
@@ -12,6 +12,11 @@ HashInt::HashInt(int tam)
         this->array[i] = -1;
     }
     this->qnt = 0;
+
+    this->numColisoes = 0;
+
+    this->tipoDeColisao = tipoDeColisao;
+
 }
 
 HashInt::~HashInt()
@@ -66,7 +71,6 @@ void HashInt::trataColisaoSondagemLinear(int val,int posicao)
         {
             this->array[i] = val;
             this->qnt++;
-            cout<<"Inserido na posição: "<<i<<endl;
             break;
         }
     }
@@ -79,7 +83,6 @@ void HashInt::trataColisaoSondagemLinear(int val,int posicao)
             {
                 this->array[j] = val;
                 this->qnt++;
-                cout<<"Inserido na posição: "<<j<<endl;
                 break;
             }
         }
@@ -111,7 +114,6 @@ void HashInt::inserir(int val)
     if(this->array[posicao] == -1)
     {
         this->array[posicao] = val;
-        cout<<"Inserido na posição: "<<posicao<<endl;
         this->qnt++;
     }
     else
@@ -119,7 +121,18 @@ void HashInt::inserir(int val)
         if( this->qnt < this->tam)
         {
             this->numColisoes++;
-            this->trataColisaoSondagemDuploHash(val,posicao);
+            if(this->tipoDeColisao == 1)
+            {
+                this->trataColisaoSondagemLinear(val,posicao);
+            }
+            else if(this->tipoDeColisao == 2)
+            {
+                this->trataColisaoSondagemQuadratica(val,posicao);
+            }
+            else if(this->tipoDeColisao == 3)
+            {
+                this->trataColisaoSondagemDuploHash(val,posicao);
+            }
         }
 
     }
@@ -136,7 +149,6 @@ void HashInt::remover(int val)
     else
     {
         int novaPosicao = buscaTrataColisao(val,posicao);
-        cout<<"novaPosicao"<<novaPosicao;
         this->array[novaPosicao] = -1; //removendo
     }
 }
@@ -151,49 +163,49 @@ void HashInt::imprimir()
 
 void HashInt::trataColisaoSondagemQuadratica(int val, int posicao)
 {
-        int i = 1;
-        while(true)
+    int i = 1;
+    while(true)
+    {
+        int aux = this->funcaoHash(val);
+        int pos = aux + i + i*i;
+        if(pos > this->tam)
         {
-            int aux = this->funcaoHash(val);
-            int pos = aux + i + i*i;
-            if(pos > this->tam)
+            //Se o tamanho da posição for maior q o tamanho do vetor então diminuimos até encontrar a posição relacionada
+            while(true)
             {
-                //Se o tamanho da posição for maior q o tamanho do vetor então diminuimos até encontrar a posição relacionada
-                while(true)
-                {
-                    pos = pos - this->tam;
-                    if(pos < this->tam)
-                        break;
-                }
+                pos = pos - this->tam;
+                if(pos < this->tam)
+                    break;
             }
-            if(this->array[pos] == -1)
-            {
-                this->array[pos] = val;
-                this->qnt++;
-                break;
-            }
-            i++;
         }
+        if(this->array[pos] == -1)
+        {
+            this->array[pos] = val;
+            this->qnt++;
+            break;
+        }
+        i++;
+    }
 }
 
 void HashInt::trataColisaoSondagemDuploHash(int val, int posicao)
 {
 
-        int i = 1;
-        while(true)
+    int i = 1;
+    while(true)
+    {
+        int f1 = this->funcaoHash(val);
+        int f2 = this->funcaoHash2(val);
+        //Calcula o novo hash
+        int pos = (f1 + i*f2) % this->tam;
+        if(this->array[pos] == -1)
         {
-            int f1 = this->funcaoHash(val);
-            int f2 = this->funcaoHash2(val);
-            //Calcula o novo hash
-            int pos = (f1 + i*f2) % this->tam;
-            if(this->array[pos] == -1)
-            {
-                this->array[pos] = val;
-                this->qnt++;
-                break;
-            }
-            i++;
+            this->array[pos] = val;
+            this->qnt++;
+            break;
         }
+        i++;
+    }
 }
 
 int HashInt::getNumColisoes()

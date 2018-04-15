@@ -8,6 +8,7 @@ class HashInt
 {
 private:
     int * array; /// Vetor de inteiros da Hash
+    int tipoDeColisao;
     int tam; /// Tamanho do vetor da Hash
     int qnt; /// Quantidade de itens na Hash
     int numColisoes; /// Numero de colisoes gerados na Hash
@@ -20,7 +21,7 @@ private:
 
 public:
     ~HashInt();
-    HashInt(int tam);
+    HashInt(int tam,int tipoDeColisao);
     int busca(int val);
     void inserir(int val);
     void remover(int val);
