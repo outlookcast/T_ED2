@@ -176,6 +176,7 @@ Data* vetorRandomData(int tam, Data *aux)
         randomArray[i].score = aux[j].score;
         randomArray[i].title = aux[j].title;
     }
+    delete [] vet;
     return randomArray;
 }
 

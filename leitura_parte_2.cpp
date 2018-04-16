@@ -58,17 +58,18 @@ Tags * leituraRandomParte2Aux(int num, Tags * tags)
     int j;
     int *vet = new int[1885079];
     for (int i=0;i<1885079;i++)
-        vet[i]=-1;
+        vet[i]=0;
     for (int i=0; i<num;)
     {
-        j = rand() % 1885079;
-        if (vet[j] == -1)
+        j = rand() % 1885078;
+        while(vet[j]==-1)
         {
-            randomArray[i].setQuestionID(tags[j].getQuestionID());
-            randomArray[i].setTag(tags[j].getTag());
-            i++;
-            vet[j] == 0;
+            j = rand() % 1885078;
         }
+        vet[j] == -1;
+        randomArray[i].setQuestionID(tags[j].getQuestionID());
+        randomArray[i].setTag(tags[j].getTag());
+        i++;
     }
     delete [] vet;
     return randomArray;
