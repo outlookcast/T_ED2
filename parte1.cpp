@@ -51,22 +51,22 @@ int main ()
 {
    /// PT1_Cenario_4();
 
-    /*
+
    Tags * tags = leituraParte2();
-   Tags * tag = leituraRandomParte2Aux(15,tags);
+   Tags * tag = leituraRandomParte2Aux(47,tags);
 
    HashTag * hash = new HashTag(324);
 
-   for(int i=0;i<15;i++)
+   for(int i=0;i<47;i++)
    {
        hash->inserir(tag[i]);
    }
-
-   //hash->frequenciaDeTodasTags();
+    cout<<"teste";
+   hash->frequenciaDeTodasTags();
 
    delete hash;
    delete [] tags,tag;
-   */
+
 /*
     Answer * data = readFile3();
     HashAnswer * hash = new HashAnswer(542489);

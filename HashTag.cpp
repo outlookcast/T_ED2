@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <cstdlib>
 #include "HashInt.h"
+#include "HashString.h"
 
 using namespace std;
 
@@ -94,19 +95,19 @@ int HashTag::frenquenciaTag(Tags tag)
     return frequencia;
 }
 
-/*
+
 void HashTag::frequenciaDeTodasTags()
 {
-    HashInt * hash = new HashInt(this->qnt,1);
+    HashString * hash = new HashString(this->tam);
     int numTagsNaoRepetidas = 0;
     for(int i=0; i<this->tam; i++)
     {
         if(this->array[i].getQuestionID() != -1 && this->array[i].getTag() != "-1")
         {
-            if(hash->busca(this->array[i].getQuestionID()) == false)
+            if(hash->busca(this->array[i].getTag()) == false)
             {
-                hash->inserir(this->array[i].getQuestionID());
-                cout<<"Frequencia da Tag "<<this->array[i].getQuestionID()<<": "<<this->frenquenciaTag(this->array[i])<<endl;
+                hash->inserir(this->array[i].getTag());
+                cout<<"Frequencia da Tag "<<this->array[i].getTag()<<": "<<this->frenquenciaTag(this->array[i])<<endl;
                 numTagsNaoRepetidas++;
             }
         }
@@ -114,4 +115,4 @@ void HashTag::frequenciaDeTodasTags()
     cout<<"Numero de tags sem repeticao: "<<numTagsNaoRepetidas<<endl;
     delete hash;
 }
-*/
+
