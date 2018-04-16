@@ -105,20 +105,20 @@ Answer *randomReadAux(int num, Answer *answer)
     int j;
     int *vet = new int[987272];
     for (int i=0;i<987272;i++)
-        vet[i]=-1;
+        vet[i]=0;
     for (int i=0; i<num;)
     {
-        j = rand() % 987272;
-        if (vet[j] == -1)
+        j = rand() % 987271;
+        while(vet[j]==-1)
         {
-            randomArray[i].setAnswerID(answer[j].getAnswerID());
-            randomArray[i].setDate(answer[j].getDate());
-            randomArray[i].setQuestionID(answer[j].getQuestionID());
-            randomArray[i].setScore(answer[j].getScore());
-            randomArray[i].setUserID(answer[j].getUserID());
-            i++;
-            vet[j] == 0;
+            j = rand() % 987271;
         }
+        vet[j] == -1;
+        randomArray[i].setAnswerID(answer[j].getAnswerID());
+        randomArray[i].setDate(answer[j].getDate());
+        randomArray[i].setQuestionID(answer[j].getQuestionID());
+        randomArray[i].setScore(answer[j].getScore());
+        randomArray[i].setUserID(answer[j].getUserID());
     }
     delete [] vet;
     return randomArray;
