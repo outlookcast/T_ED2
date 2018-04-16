@@ -298,8 +298,18 @@ void PT1_Cenario_4()
     delete hashDuploHash100000;
 
 
+     ///Testando para N=500.000 -> Hash Duplo Hash
+    HashInt * hashDuploHash500000 = new HashInt(H500k,3);
+    for(int i=0;i<500000;i++)
+    {
+        hashDuploHash500000->inserir(vetor500000[i].getQuestionID());
+    }
+    cout<<"Numero de colisoes (Tratamento Duplo Hash N=500.000): "<<hashDuploHash500000->getNumColisoes()<<endl;
+    delete hashDuploHash500000;
+
+
     ///  ---------------------------------------- FIM DOS TESTES PARA TRATAMENTO DUPLO HASH ---------------------------------------- ///
-    cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO DUPLO HASH -------- ///"<<endl;
+    cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO DUPLO HASH -------- ///"<<endl; 
 
     cout<<endl;
     cout<<endl;

@@ -31,7 +31,7 @@ int HashInt::funcaoHash(int val)
 
 int HashInt::funcaoHash2(int val,int i)
 {
-    return (i*this->funcaoHash(val)+1);
+    return (i - (val % i));
 }
 
 int HashInt::buscaTrataColisao(int val,int posicao)
