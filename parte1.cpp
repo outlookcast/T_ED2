@@ -17,6 +17,7 @@
 #include "leitura3.h"
 #include "HashAnswer.h"
 #include "HashTag.h"
+#include "HashString.h"
 
 using namespace std;
 
@@ -50,6 +51,7 @@ int main ()
 {
    /// PT1_Cenario_4();
 
+    /*
    Tags * tags = leituraParte2();
    Tags * tag = leituraRandomParte2Aux(15,tags);
 
@@ -64,6 +66,7 @@ int main ()
 
    delete hash;
    delete [] tags,tag;
+   */
 /*
     Answer * data = readFile3();
     HashAnswer * hash = new HashAnswer(542489);
