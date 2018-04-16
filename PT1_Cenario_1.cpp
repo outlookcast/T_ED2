@@ -1,6 +1,8 @@
 #include "PT1_Cenario1.h"
+#include <time.h>
+#include <vector>
 
-vector<int> readFile2(char * fileName)
+vector<int> readFile2t(char * fileName)
 {
     vector<int> vetor;
     ifstream file(fileName);
@@ -27,7 +29,7 @@ vector<int> readFile2(char * fileName)
 void PT1_Cenario_1()
 {
     Data *vetorCompleto = readFile();         //Armazena todas as estradas do arquivo
-    vector<int> vetorTam = readFile2("entrada.txt");
+    vector<int> vetorTam = readFile2t("entrada.txt");
     ofstream saida;
 
     saida.open("saida.txt");      //grava os resultados
@@ -47,7 +49,7 @@ void PT1_Cenario_1()
 		//Variaveis para medir o tempo medio de excução
         double tempoInt = 0;
         double tempoData = 0;
-		
+
         for(int j = 0; j < 5; ++j)
         {
             int *vetor = vetorRandomInt(tam, vetorCompleto);           //Gera um vetor de inteiros de tamanho tam

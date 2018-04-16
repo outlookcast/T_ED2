@@ -153,3 +153,36 @@ int Hash::getItens()
 {
     return this->itens;
 }
+
+
+bool Hash::busca(Data data)
+{
+    int pos = function(data);
+    if(this->array[pos].getQuestionID() == data.getQuestionID())
+    {
+        return true;
+    }
+    else
+    {
+        int i;
+        for(i=pos; i<this->size; i++)
+        {
+            if(this->array[i].getQuestionID() == data.getQuestionID())
+            {
+                return true;
+            }
+        }
+        int j;
+        for(j=0; j<pos; j++)
+        {
+            if(this->array[j].getQuestionID() == data.getQuestionID())
+            {
+                return true;
+            }
+        }
+        if(j==pos)
+        {
+            return false;
+        }
+    }
+}

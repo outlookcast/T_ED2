@@ -23,6 +23,6 @@ public:
     int searchIndex(Data data);
     void remover(Data data);
     int getItens();
-
+    bool busca(Data data);
 };
 #endif // HASH_H_INCLUDED

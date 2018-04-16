@@ -1,5 +1,5 @@
 #include "PT1_Cenario2.h"
-
+#include <time.h>
 void PT1_Cenario_2()
 {
 	Data *data = readFile();
@@ -89,7 +89,7 @@ void PT1_Cenario_2()
 
 
 
-	
+
 
 		saida<<"\nTam = "<<vetor[i]<<"\n\n    QuickSorteRec:\n     Numero de comparacoes Medio: "<<comparacaoQuick1<<"\n     Numero de trocas Medio:"<<trocaQuick1<<"\n     Tempo Medio: "<<tempoQuick1<<endl;
 		saida<<"\n\n    QuickSorteMediana:\n     Numero de comparacoes Medio: "<<comparacaoQuick2<<"\n     Numero de trocas Medio:"<<trocaQuick2<<"\n     Tempo Medio: "<<tempoQuick2<<endl;
