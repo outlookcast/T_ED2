@@ -16,6 +16,7 @@
 #include "answer.h"
 #include "leitura3.h"
 #include "HashAnswer.h"
+#include "HashTag.h"
 
 using namespace std;
 
@@ -48,9 +49,10 @@ vector<int> readFile2(char * fileName)
 int main ()
 {
    /// PT1_Cenario_4();
+   /*
     Answer * data = readFile3();
-    HashAnswer * hash = new HashAnswer(4521);
-    for(int i=0;i<100;i++)
+    HashAnswer * hash = new HashAnswer(542489);
+    for(int i=0;i<500000;i++)
     {
         hash->inserir(data[i]);
     }
@@ -61,6 +63,10 @@ int main ()
 
     delete hash;
     delete [] data;
+    */
+    HashTag * hash = new HashTag(7);
+
+    delete hash;
 /*
     Data *vetorCompleto = readFile(607357);         //Armazena todas as estradas do arquivo
     vector<int> vetorTam = readFile2("entrada.txt");

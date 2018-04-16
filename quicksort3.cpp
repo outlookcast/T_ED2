@@ -1,6 +1,8 @@
 #include <iostream>
 #include "quickSort3.h"
 #include "quickSort2.h"
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 
@@ -17,11 +19,11 @@ void quicksort3(int *vetor, int tam, int *comparacoes, int *numCopias)
 
 	swap2(&vetor[maior], &vetor[tam-1]);
 	quicksort3(vetor, 0, tam-1, comparacoes, numCopias);
-} 
+}
 
 void quicksort3(int *vetor, int inicio, int fim, int *comparacoes, int *numCopias)
 {
-	
+
 	if(inicio == fim)
 		return;
 
@@ -29,12 +31,12 @@ void quicksort3(int *vetor, int inicio, int fim, int *comparacoes, int *numCopia
 	{
 		insertion(&vetor[inicio], (fim-inicio+1), comparacoes, numCopias);
 		return;
-	}	
+	}
 
 	int ind1 = 	inicio + rand() % (fim - inicio);
 	int ind2 = inicio + rand() % (fim - inicio);
 	int ind3 = inicio + rand() % (fim - inicio);
-	
+
 	int num1 = vetor[ind1];
 	int num2 = vetor[ind2];
 	int num3 = vetor[ind3];
@@ -51,7 +53,7 @@ void quicksort3(int *vetor, int inicio, int fim, int *comparacoes, int *numCopia
 
 	swap2(&vetor[inicio], &vetor[indPivo]);
 
-	int inferior = inicio + 1; 
+	int inferior = inicio + 1;
 	int superior = fim;
 
     while(inferior <= superior)

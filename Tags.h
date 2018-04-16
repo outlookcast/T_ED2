@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #ifndef TAGS_H_INCLUDED
 #define TAGS_H_INCLUDED
 
@@ -9,6 +10,7 @@ class Tags
 private:
     int questionID;
     string tag;
+    vector<Tags> lista;
 
 public:
     Tags();
@@ -18,6 +20,7 @@ public:
     string getTag();
     void setQuestionID(int questionID);
     void setTag(string tag);
+
 };
 
 #endif // TAGS_H_INCLUDED
