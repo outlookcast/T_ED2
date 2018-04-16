@@ -159,9 +159,17 @@ Data* vetorRandomData(int tam, Data *aux)
 {
     Data *randomArray = new Data[tam];
     int j;
+    int *vet = new int [607357];
+    for(int i=0;i<607357;i++)
+    	vet[i]=0;
     for (int i=0; i<tam; i++)
     {
-        j = rand() % 607357;
+        j = rand() % 607356;
+        while(vet[j]==-1)
+        {
+        	j = rand() % 607356;
+        }
+        vet[j] = -1;
         randomArray[i].questionID = aux[j].questionID;
         randomArray[i].userID = aux[j].userID;
         randomArray[i].date = aux[j].date;
