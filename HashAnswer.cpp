@@ -3,6 +3,7 @@
 #include <list>
 #include "answer.h"
 #include "HashInt.h"
+#include <iterator>
 
 using namespace std;
 
@@ -63,7 +64,7 @@ void HashAnswer::frequenciaDeTodosUsuarios()
 {
     HashInt * hash = new HashInt(this->qnt,1);
     int numUsuariosNaoRepetidos = 0;
-    for(int i=0;i<this->tam;i++)
+    for(int i=0; i<this->tam; i++)
     {
         if(this->array[i].getUserID() != -1 && this->array[i].getQuestionID() != -1)
         {
@@ -84,10 +85,10 @@ int HashAnswer::frenquenciaUsuario(Answer user)
     int posicao = this->funcaoHash(user);
     int userID = user.getUserID();
     int frequencia = 1;
-    vector<Answer> aux = this->array[posicao].getLista();
-    for(int i=0; i<aux.size();i++)
+    list<Answer> lst = this->array[posicao].getLista();
+    for (list<Answer>::iterator i = lst.begin(); i != lst.end(); ++i)
     {
-        if(aux[i].getUserID() == userID )
+        if(i->getUserID() == userID )
         {
             frequencia++;
         }

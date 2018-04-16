@@ -1,7 +1,7 @@
 #ifndef ANSWER_H
 #define ANSWER_H
 #include <iostream>
-#include <vector>
+#include <list>
 using namespace std;
 
 class Answer
@@ -23,7 +23,7 @@ class Answer
         string getDate();
         int getQuestionID();
         int getScore();
-        vector<Answer> getLista();
+        list<Answer> getLista();
 
         void inserirNaLista(Answer answer);
         void imprime();
@@ -34,7 +34,7 @@ class Answer
         string date;
         int questionID;
         int score;
-        vector<Answer> lista;
+        list<Answer> lista;
 };
 
 #endif // ANSWER_H

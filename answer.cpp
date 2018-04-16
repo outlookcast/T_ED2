@@ -58,7 +58,7 @@ int Answer::getScore()
     return score;
 }
 
-vector<Answer> Answer::getLista()
+list<Answer> Answer::getLista()
 {
     return this->lista;
 }

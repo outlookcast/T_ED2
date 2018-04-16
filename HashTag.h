@@ -14,6 +14,9 @@ private:
 public:
     HashTag(int tam);
     ~HashTag();
+    void inserir(Tags tag);
+    int frenquenciaTag(Tags tag);
+    void frequenciaDeTodasTags();
 };
 
 #endif // HASHTAG_H_INCLUDED

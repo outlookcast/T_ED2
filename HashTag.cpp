@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <cstdlib>
+#include "HashInt.h"
 
 using namespace std;
 
@@ -57,5 +58,60 @@ int HashTag::funcaoHash(string tag)
 
     char* endptr;
     long value = strtol(p1,&endptr,2);
-    return value;
+    return value % this->tam;
 }
+
+
+void HashTag::inserir(Tags tag)
+{
+    int posicao = this->funcaoHash(tag.getTag());
+    if(this->array[posicao].getQuestionID() == -1)
+    {
+        this->array[posicao].setQuestionID(tag.getQuestionID());
+        this->array[posicao].setTag(tag.getTag());
+    }
+    else
+    {
+        this->numColisoes++;
+        this->array[posicao].inserirNaLista(tag);
+    }
+}
+
+
+int HashTag::frenquenciaTag(Tags tag)
+{
+    int posicao = this->funcaoHash(tag.getTag());
+    string tagAux = tag.getTag();
+    int frequencia = 1;
+    list<Tags> lst = this->array[posicao].getLista();
+    for (list<Tags>::iterator i = lst.begin(); i != lst.end(); ++i)
+    {
+        if(i->getTag() == tagAux )
+        {
+            frequencia++;
+        }
+    }
+    return frequencia;
+}
+
+/*
+void HashTag::frequenciaDeTodasTags()
+{
+    HashInt * hash = new HashInt(this->qnt,1);
+    int numTagsNaoRepetidas = 0;
+    for(int i=0; i<this->tam; i++)
+    {
+        if(this->array[i].getQuestionID() != -1 && this->array[i].getTag() != "-1")
+        {
+            if(hash->busca(this->array[i].getQuestionID()) == false)
+            {
+                hash->inserir(this->array[i].getQuestionID());
+                cout<<"Frequencia da Tag "<<this->array[i].getQuestionID()<<": "<<this->frenquenciaTag(this->array[i])<<endl;
+                numTagsNaoRepetidas++;
+            }
+        }
+    }
+    cout<<"Numero de tags sem repeticao: "<<numTagsNaoRepetidas<<endl;
+    delete hash;
+}
+*/

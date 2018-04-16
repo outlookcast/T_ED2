@@ -38,12 +38,16 @@
 		<Unit filename="FilaCont.h" />
 		<Unit filename="Hash.cpp" />
 		<Unit filename="Hash.h" />
+		<Unit filename="HashAnswer.cpp" />
+		<Unit filename="HashAnswer.h" />
 		<Unit filename="HashCoalescido.cpp" />
 		<Unit filename="HashCoalescido.h" />
 		<Unit filename="HashEncad.cpp" />
 		<Unit filename="HashEncad.h" />
 		<Unit filename="HashInt.cpp" />
 		<Unit filename="HashInt.h" />
+		<Unit filename="HashTag.cpp" />
+		<Unit filename="HashTag.h" />
 		<Unit filename="HeapSort.cpp" />
 		<Unit filename="HeapSort.h" />
 		<Unit filename="No.cpp" />

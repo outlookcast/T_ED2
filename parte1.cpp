@@ -49,7 +49,22 @@ vector<int> readFile2(char * fileName)
 int main ()
 {
    /// PT1_Cenario_4();
-   /*
+
+   Tags * tags = leituraParte2();
+   Tags * tag = leituraRandomParte2Aux(15,tags);
+
+   HashTag * hash = new HashTag(324);
+
+   for(int i=0;i<15;i++)
+   {
+       hash->inserir(tag[i]);
+   }
+
+   //hash->frequenciaDeTodasTags();
+
+   delete hash;
+   delete [] tags,tag;
+/*
     Answer * data = readFile3();
     HashAnswer * hash = new HashAnswer(542489);
     for(int i=0;i<500000;i++)
@@ -63,11 +78,8 @@ int main ()
 
     delete hash;
     delete [] data;
-    */
-    HashTag * hash = new HashTag(7);
 
-    delete hash;
-/*
+
     Data *vetorCompleto = readFile(607357);         //Armazena todas as estradas do arquivo
     vector<int> vetorTam = readFile2("entrada.txt");
     ofstream saida;
