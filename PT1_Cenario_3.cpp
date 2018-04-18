@@ -27,7 +27,7 @@ void PT1_Cenario_3()
 	ofstream saida;
 
     saida.open("saida.txt");      //grava os resultados
-	int vetor[] = {100, 200, 300, 350, 300, 250};
+	int vetor[] = {1000, 5000, 10000, 50000, 100000, 500000};
 
 	int comparacaoHeap = 0;
     int trocaHeap = 0;
