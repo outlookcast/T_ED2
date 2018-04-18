@@ -14,7 +14,6 @@ private:
     int numColisoes;
     int qnt;
     int funcaoHash(string val);
-    char* itoab(int n, char *str, size_t str_size, unsigned short base);
 
 public:
     HashString(int tam);
@@ -22,7 +21,6 @@ public:
     bool busca(string val);
     void inserir(string val);
     void trataColisaoSondagemLinear(string val,int posicao);
-    char* itoa(int n, char *str, size_t str_size, unsigned short base);
 
 };
 

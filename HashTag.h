@@ -12,7 +12,6 @@ private:
     int qnt;
     int numColisoes;
     int funcaoHash(string Tag);
-    char* itoaa(int n, char *str, size_t str_size, unsigned short base);
 
 public:
     HashTag(int tam);
