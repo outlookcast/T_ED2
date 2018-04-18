@@ -6,7 +6,7 @@ void PT1_Cenario_2()
 	ofstream saida;
 
     saida.open("saida.txt");      //grava os resultados
-	int vetor[] = {100, 200, 300, 350, 300, 250};
+	int vetor[] = {1000, 5000, 10000, 50000, 100000, 500000};
 
 	int comparacaoQuick1 = 0;
     int trocaQuick1 = 0;
@@ -90,7 +90,7 @@ void PT1_Cenario_2()
 
 
 
-
+		cout<<"Saída no arquivo saida.txt"<<endl;
 		saida<<"\nTam = "<<vetor[i]<<"\n\n    QuickSorteRec:\n     Numero de comparacoes Medio: "<<comparacaoQuick1<<"\n     Numero de trocas Medio:"<<trocaQuick1<<"\n     Tempo Medio: "<<tempoQuick1<<endl;
 		saida<<"\n\n    QuickSorteMediana:\n     Numero de comparacoes Medio: "<<comparacaoQuick2<<"\n     Numero de trocas Medio:"<<trocaQuick2<<"\n     Tempo Medio: "<<tempoQuick2<<endl;
 		saida<<"\n\n    QuickSorteInser:\n     Numero de comparacoes Medio: "<<comparacaoQuick3<<"\n     Numero de trocas Medio:"<<trocaQuick3<<"\n     Tempo Medio: "<<tempoQuick3<<endl;
