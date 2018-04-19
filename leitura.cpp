@@ -10,6 +10,16 @@
 #include "quickSort1.h"
 #include "leitura.h"
 #include "HashEncad.h"
+#include "time.h"
+unsigned long llrand() ///Em alguns compiladores a função rand() é limitada em 32767, então usamos essa função para retornar um valor randomizado maior.
+{
+    unsigned long r = 0;
+    for (int i = 0; i < 5; ++i)
+    {
+        r = (r << 15) | (rand() & 0x7FFF);
+    }
+    return r & 0xFFFFFFFFFFFFFFFFULL;
+}
 Data* readFile()
 {
     int tam = 607357;
@@ -157,6 +167,7 @@ Data* readFile()
 
 Data* vetorRandomData(int tam, Data *aux)
 {
+    srand(time(NULL));
     Data *randomArray = new Data[tam];
     int j;
     int *vet = new int [607357];
@@ -164,12 +175,13 @@ Data* vetorRandomData(int tam, Data *aux)
     	vet[i]=0;
     for (int i=0; i<tam; i++)
     {
-        j = rand() % 607356;
+        j = (llrand() % 607356);
         while(vet[j]==-1)
         {
-        	j = rand() % 607356;
+        	j = (llrand() % 607356);
+      //  	if(j%10000==0)
+       //         cout<<j<<endl;
         }
-        cout<<"Saiu"<<" ";
         vet[j] = -1;
         randomArray[i].questionID = aux[j].questionID;
         randomArray[i].userID = aux[j].userID;
