@@ -40,6 +40,8 @@
 		<Unit filename="Hash.h" />
 		<Unit filename="HashAnswer.cpp" />
 		<Unit filename="HashAnswer.h" />
+		<Unit filename="HashBuscaAnswer.cpp" />
+		<Unit filename="HashBuscaAnswer.h" />
 		<Unit filename="HashCoalescido.cpp" />
 		<Unit filename="HashCoalescido.h" />
 		<Unit filename="HashEncad.cpp" />
@@ -50,6 +52,8 @@
 		<Unit filename="HashString.h" />
 		<Unit filename="HashTag.cpp" />
 		<Unit filename="HashTag.h" />
+		<Unit filename="HashTagBusca.cpp" />
+		<Unit filename="HashTagBusca.h" />
 		<Unit filename="HeapSort.cpp" />
 		<Unit filename="HeapSort.h" />
 		<Unit filename="No.cpp" />

@@ -36,18 +36,19 @@ Tags * leituraParte2()
             if(cont == 1)
             {
                 getline(ip,QuestionID,',');
-                contadorDeLinhas++;
                 cont++;
             }
             else if(cont == 2)
             {
                 getline(ip,Tag,'\n');
                 cont = 1;
+                dados[contadorDeLinhas].setQuestionID(atoi(QuestionID.c_str()));
+                dados[contadorDeLinhas].setTag(Tag);
+                contadorDeLinhas++;
             }
-            dados[contadorDeLinhas].setQuestionID(atoi(QuestionID.c_str()));
-            dados[contadorDeLinhas].setTag(Tag);
         }
         ip.close();
+        cout<<"Fim da leitura"<<endl;
         return dados;
     }
 }
@@ -57,7 +58,7 @@ Tags * leituraRandomParte2Aux(int num, Tags * tags)
     Tags *randomArray = new Tags[num];
     int j;
     int *vet = new int[1885079];
-    for (int i=0;i<1885079;i++)
+    for (int i=0; i<1885079; i++)
         vet[i]=0;
     for (int i=0; i<num;)
     {

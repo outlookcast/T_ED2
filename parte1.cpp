@@ -18,6 +18,8 @@
 #include "HashAnswer.h"
 #include "HashTag.h"
 #include "HashString.h"
+#include "HashTagBusca.h"
+#include "HashBuscaAnswer.h"
 
 using namespace std;
 
@@ -49,168 +51,221 @@ vector<int> readFile2(char * fileName)
 
 int main ()
 {
-   /// PT1_Cenario_4();
+    int tam = 1453;
+    HashBuscaAnswer * hash = new HashBuscaAnswer(1387272);
+    HashAnswer * hashKkEaeMen = new HashAnswer(1973);
+    Answer * anser = readFile3();
+    Data * aux = readFile();
+    Data * data = vetorRandomData(tam,aux);
 
+    for(int i=0; i<987272; i++)
+        hash->insere(anser[i]);
 
-   Tags * tags = leituraParte2();
-   Tags * tag = leituraRandomParte2Aux(47,tags);
-
-   HashTag * hash = new HashTag(324);
-
-   for(int i=0;i<47;i++)
-   {
-       hash->inserir(tag[i]);
-   }
-    cout<<"teste";
-   hash->frequenciaDeTodasTags();
-
-   delete hash;
-   delete [] tags,tag;
-
-/*
-    Answer * data = readFile3();
-    HashAnswer * hash = new HashAnswer(542489);
-    for(int i=0;i<500000;i++)
+    for(int i=0;i<tam;i++)
     {
-        hash->inserir(data[i]);
-    }
-    hash->frequenciaDeTodosUsuarios();
-
-
-    cout<<"Numero de Colisoes: "<<hash->getNumColisoes();
-
-    delete hash;
-    delete [] data;
-
-
-    Data *vetorCompleto = readFile(607357);         //Armazena todas as estradas do arquivo
-    vector<int> vetorTam = readFile2("entrada.txt");
-    ofstream saida;
-
-    saida.open("saida.txt");      //grava os resultados
-	cout<<"Inicio dos testes\n";
-    for(int i = 0; i < vetorTam.size(); ++i)
-    {
-		//Número de trocas e comparações para inteiro
-        int numComparacaoInt = 0;
-        int numTrocasInt = 0;
-
-		//Número de trocas e comparações para Data
-        int numComparacaoData = 0;
-        int numTrocasData = 0;
-
-        int tam = vetorTam[i];    //Tamanho do vetor na i° interação
-
-		//Variaveis para medir o tempo medio de excução
-        double tempoInt = 0;
-        double tempoData = 0;
-
-        for(int j = 0; j < 5; ++j)
+        int questId = data[i].getQuestionID();
+        list<int> kkEaeMen = hash->busca(questId);
+        for (list<int>::iterator i = kkEaeMen.begin(); i != kkEaeMen.end(); ++i)
         {
-            int *vetor = vetorRandomInt(tam, vetorCompleto);           //Gera um vetor de inteiros de tamanho tam
-            clock_t t1 = clock();                                      //Tempo antes de chamar quick
-            quicksort(vetor, tam, &numComparacaoInt, &numTrocasInt);
-            clock_t t2 = clock();										//Tempo depois de chamar quick
-
-            tempoInt += (t2 - t1) * 1000.0 / CLOCKS_PER_SEC;
-            delete vetor;
-
+            cout<<questId<<" "<<*i<<" ";
+            Answer ans;
+            ans.setQuestionID(questId);
+            ans.setUserID(*i);
+            hashKkEaeMen->inserir(ans);
         }
-
-		//Calcula a media para trocas, comparações e tempo
-        numTrocasInt = numTrocasInt / 5;
-        numComparacaoInt = numComparacaoInt / 5;
-        tempoInt = tempoInt / 5;
-
-
-        for(int j = 0; j < 5; ++j)
-        {
-            Data *vetor = vetorRandomData(tam, vetorCompleto);		//Gera um vetor de Data de tamanho tam
-            clock_t t1 = clock();//Tempo antes de chamar quick
-            quicksort(vetor, tam, &numComparacaoData, &numTrocasData);
-            clock_t t2 = clock();									//Tempo depois de chamar quick
-            tempoData += (t2 - t1) * 1000.0 / CLOCKS_PER_SEC;
-
-            delete []vetor;
-
-
-        }
-
-		//Calcula a media para trocas, comparações e tempo
-        numTrocasData = numTrocasData / 5;
-        numComparacaoData = numComparacaoData / 5;
-        tempoData = tempoData / 5;
-
-		//Grava os resultados em saida.txt
-        saida<<"Tam = "<<tam<<" :\n"<<"  Int:\n"<<"    Numero de comparacoes medio: "<<numComparacaoInt<<"\n    Numero de trocas medio: "<<numTrocasInt<<"\n    Tempo medio: "<<tempoInt<<endl;
-        saida<<"\n  Data: \n"<<"    Numero de comparacoes medio: "<<numComparacaoData<<"\n    Numero de trocas medio: "<<numTrocasData<<"\n    Tempo medio: "<<tempoData<<endl<<endl;
-
-
-		}
-	cout<<"Fim dos testes\n";
-    saida.close();
-	delete []vetorCompleto;
-
-	Data * data2 = readFile();
-	Data * data = vetorRandomData(100,data2);
-	HashEncad * hash = new HashEncad(1475);
-
-	for(int i=0;i<100;i++)
-    {
-        hash->inserir(data[i].getQuestionID());
     }
-    hash->imprimir();
-    cout<<"Numero de Colisoes: "<<hash->getNumColisoes()<<endl;
+
+    hashKkEaeMen->frequenciaDeTodosUsuarios();
+
+    delete hashKkEaeMen;
     delete [] data;
-    delete [] data2;
+    delete [] aux;
+    delete [] anser;
     delete hash;
 
-    ///Parte 2 leitura de Answers e Tags
-    int chave1, chave2, tam;
-    cout<<"Qual arquivo ler: "<< endl;
-    cout<<"1- Answers.csv: "<< endl;
-    cout<<"2- Tags.csv:"<< endl;
-    cin>> chave2;
-    cout<<"Quantidade de dados para ler: "<<endl;
-    cin<< tam;
-    if (chave2 == 1)
-    {
-        cout<< "Tratamento do Hash: "<< endl;
-        cout<< "1- Sondagem Linear: ": << endl;
-        cout<< "2- Sondagem Quadratica: "<< endl;
-        cout<< "3- Duplo Hash: "<<endl;
-        cout<< "4- Sondagem em lista: ";
-        cin>> chave1;
-        switch chave1
+    /*
+    int tam = 1453;
+    Tags * arrayDeTags = leituraParte2();
+    HashTagBusca * hashBusca = new HashTagBusca(2985079);
+    HashTag * frequencia = new HashTag(2478);
+
+    for(int i=0; i<1885079-1; i++)
+        hashBusca->insere(arrayDeTags[i]);
+
+    Data * aux = readFile();
+    Data * data = vetorRandomData(tam,aux);
+    int questId = data[0].getQuestionID();
+
+    for(int i=0; i<tam; i++)
+    {   questId = data[i].getQuestionID();
+        list<string> lista = hashBusca->busca(questId);
+        for (list<string>::iterator i = lista.begin(); i != lista.end(); ++i)
         {
-            case 1:
-                    HashInt testeHash = new HashInt();
-                    Answer *answer = randomRead(tam);
-                    for (int i=0; i<tam; i++)
-                    {
-                        testeHash.inserir()
-                    }
-
-
+            Tags tagAux(questId,*i);
+            frequencia->inserir(tagAux);
         }
     }
-        if (chave2 == 2)
-    {
-        cout<< "Tratamento do Hash: "<< endl;
-        cout<< "1- Sondagem Linear: ": << endl;
-        cout<< "2- Sondagem Quadratica: "<< endl;
-        cout<< "3- Duplo Hash: "<<endl;
-        cout<< "4- Sondagem em lista: ";
-        cin>> chave1;
-        switch chave1
+
+    frequencia->frequenciaDeTodasTags();
+
+
+
+
+
+
+    delete [] data;
+    delete [] aux;
+    delete [] arrayDeTags;
+    delete frequencia;
+    delete hashBusca;
+
+
+
+
+    /*
+        Answer * data = readFile3();
+        HashAnswer * hash = new HashAnswer(542489);
+        for(int i=0;i<500000;i++)
         {
-            case 1:
-
-
+            hash->inserir(data[i]);
         }
-    }
-    ///Parte 2 leitura fim
-*/
+        hash->frequenciaDeTodosUsuarios();
+
+
+        cout<<"Numero de Colisoes: "<<hash->getNumColisoes();
+
+        delete hash;
+        delete [] data;
+
+
+        Data *vetorCompleto = readFile(607357);         //Armazena todas as estradas do arquivo
+        vector<int> vetorTam = readFile2("entrada.txt");
+        ofstream saida;
+
+        saida.open("saida.txt");      //grava os resultados
+    	cout<<"Inicio dos testes\n";
+        for(int i = 0; i < vetorTam.size(); ++i)
+        {
+    		//Número de trocas e comparações para inteiro
+            int numComparacaoInt = 0;
+            int numTrocasInt = 0;
+
+    		//Número de trocas e comparações para Data
+            int numComparacaoData = 0;
+            int numTrocasData = 0;
+
+            int tam = vetorTam[i];    //Tamanho do vetor na i° interação
+
+    		//Variaveis para medir o tempo medio de excução
+            double tempoInt = 0;
+            double tempoData = 0;
+
+            for(int j = 0; j < 5; ++j)
+            {
+                int *vetor = vetorRandomInt(tam, vetorCompleto);           //Gera um vetor de inteiros de tamanho tam
+                clock_t t1 = clock();                                      //Tempo antes de chamar quick
+                quicksort(vetor, tam, &numComparacaoInt, &numTrocasInt);
+                clock_t t2 = clock();										//Tempo depois de chamar quick
+
+                tempoInt += (t2 - t1) * 1000.0 / CLOCKS_PER_SEC;
+                delete vetor;
+
+            }
+
+    		//Calcula a media para trocas, comparações e tempo
+            numTrocasInt = numTrocasInt / 5;
+            numComparacaoInt = numComparacaoInt / 5;
+            tempoInt = tempoInt / 5;
+
+
+            for(int j = 0; j < 5; ++j)
+            {
+                Data *vetor = vetorRandomData(tam, vetorCompleto);		//Gera um vetor de Data de tamanho tam
+                clock_t t1 = clock();//Tempo antes de chamar quick
+                quicksort(vetor, tam, &numComparacaoData, &numTrocasData);
+                clock_t t2 = clock();									//Tempo depois de chamar quick
+                tempoData += (t2 - t1) * 1000.0 / CLOCKS_PER_SEC;
+
+                delete []vetor;
+
+
+            }
+
+    		//Calcula a media para trocas, comparações e tempo
+            numTrocasData = numTrocasData / 5;
+            numComparacaoData = numComparacaoData / 5;
+            tempoData = tempoData / 5;
+
+    		//Grava os resultados em saida.txt
+            saida<<"Tam = "<<tam<<" :\n"<<"  Int:\n"<<"    Numero de comparacoes medio: "<<numComparacaoInt<<"\n    Numero de trocas medio: "<<numTrocasInt<<"\n    Tempo medio: "<<tempoInt<<endl;
+            saida<<"\n  Data: \n"<<"    Numero de comparacoes medio: "<<numComparacaoData<<"\n    Numero de trocas medio: "<<numTrocasData<<"\n    Tempo medio: "<<tempoData<<endl<<endl;
+
+
+    		}
+    	cout<<"Fim dos testes\n";
+        saida.close();
+    	delete []vetorCompleto;
+
+    	Data * data2 = readFile();
+    	Data * data = vetorRandomData(100,data2);
+    	HashEncad * hash = new HashEncad(1475);
+
+    	for(int i=0;i<100;i++)
+        {
+            hash->inserir(data[i].getQuestionID());
+        }
+        hash->imprimir();
+        cout<<"Numero de Colisoes: "<<hash->getNumColisoes()<<endl;
+        delete [] data;
+        delete [] data2;
+        delete hash;
+
+        ///Parte 2 leitura de Answers e Tags
+        int chave1, chave2, tam;
+        cout<<"Qual arquivo ler: "<< endl;
+        cout<<"1- Answers.csv: "<< endl;
+        cout<<"2- Tags.csv:"<< endl;
+        cin>> chave2;
+        cout<<"Quantidade de dados para ler: "<<endl;
+        cin<< tam;
+        if (chave2 == 1)
+        {
+            cout<< "Tratamento do Hash: "<< endl;
+            cout<< "1- Sondagem Linear: ": << endl;
+            cout<< "2- Sondagem Quadratica: "<< endl;
+            cout<< "3- Duplo Hash: "<<endl;
+            cout<< "4- Sondagem em lista: ";
+            cin>> chave1;
+            switch chave1
+            {
+                case 1:
+                        HashInt testeHash = new HashInt();
+                        Answer *answer = randomRead(tam);
+                        for (int i=0; i<tam; i++)
+                        {
+                            testeHash.inserir()
+                        }
+
+
+            }
+        }
+            if (chave2 == 2)
+        {
+            cout<< "Tratamento do Hash: "<< endl;
+            cout<< "1- Sondagem Linear: ": << endl;
+            cout<< "2- Sondagem Quadratica: "<< endl;
+            cout<< "3- Duplo Hash: "<<endl;
+            cout<< "4- Sondagem em lista: ";
+            cin>> chave1;
+            switch chave1
+            {
+                case 1:
+
+
+            }
+        }
+        ///Parte 2 leitura fim
+    */
 
     return 0;
 }
