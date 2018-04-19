@@ -22,7 +22,7 @@
 #include "HashBuscaAnswer.h"
 
 using namespace std;
-
+/*
 //Leitura do arquivo de endrada com os tamanhos a serem testados
 vector<int> readFile2(char * fileName)
 {
@@ -49,7 +49,7 @@ vector<int> readFile2(char * fileName)
 }
 
 
-int main ()
+/*int main ()
 {
     int tam = 1453;
     HashBuscaAnswer * hash = new HashBuscaAnswer(1387272);
@@ -265,10 +265,10 @@ int main ()
             }
         }
         ///Parte 2 leitura fim
-    */
+
 
     return 0;
-}
+}*/
 
 
 

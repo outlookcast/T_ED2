@@ -169,6 +169,7 @@ Data* vetorRandomData(int tam, Data *aux)
         {
         	j = rand() % 607356;
         }
+        cout<<"Saiu"<<" ";
         vet[j] = -1;
         randomArray[i].questionID = aux[j].questionID;
         randomArray[i].userID = aux[j].userID;

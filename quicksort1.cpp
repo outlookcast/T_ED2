@@ -236,7 +236,7 @@ void quicksort(Data *vetor, int n,  int *comparacoes, int *numCopias)
     quicksort(vetor, 0, n-2, comparacoes, numCopias);
 }
 
-void quicksort(FrequnciaTag *vetor, int inicio, int fim)
+void quicksort(FrequenciaTag *vetor, int inicio, int fim)
 {
   if(inicio == fim)
       return;
@@ -287,7 +287,7 @@ void quicksort(FrequnciaTag *vetor, int inicio, int fim)
 
 }
 
-void quicksort(FrequnciaTag *vetor, int n)
+void quicksort(FrequenciaTag *vetor, int n)
 {
   int maior = 0;
 
@@ -310,9 +310,9 @@ void quicksort(FrequnciaTag *vetor, int n)
 
 }
 
-void swap(FrequnciaTag *valor1, FrequnciaTag *valor2)
+void swap(FrequenciaTag *valor1, FrequenciaTag *valor2)
 {
-  FrequnciaTag temp;
+  FrequenciaTag temp;
   temp.frequencia = valor1->frequencia;
   temp.tag = valor1->frequencia;
 

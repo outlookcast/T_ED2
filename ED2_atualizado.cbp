@@ -36,6 +36,7 @@
 		<Unit filename="Data.h" />
 		<Unit filename="FilaCont.cpp" />
 		<Unit filename="FilaCont.h" />
+		<Unit filename="FrequenciaTag.h" />
 		<Unit filename="Hash.cpp" />
 		<Unit filename="Hash.h" />
 		<Unit filename="HashAnswer.cpp" />
@@ -75,6 +76,7 @@
 		<Unit filename="leitura3.cpp" />
 		<Unit filename="leitura3.h" />
 		<Unit filename="leitura_parte_2.cpp" />
+		<Unit filename="main.cpp" />
 		<Unit filename="merge.cpp" />
 		<Unit filename="merge.h" />
 		<Unit filename="parte1.cpp" />

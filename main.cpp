@@ -76,6 +76,7 @@ int main ()
 	   				PT1_Cenario_3();
 	   				break;
 	   		case 4:
+                    cout<<"parte 4";
 	   				PT1_Cenario_4();
 	   				break;
 	   		default:

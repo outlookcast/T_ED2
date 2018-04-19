@@ -22,11 +22,17 @@ void PT1_Cenario_4()
 
     Data * vetorDeDados = readFile();
     Data * vetor1000 =  vetorRandomData(1000, vetorDeDados); ///Tamanho da Hash = 10.909
+    cout<<"testev 1"<<endl;
     Data * vetor5000 = vetorRandomData(5000, vetorDeDados); ///Tamanho da Hash = 50.227
+    cout<<"testev 2"<<endl;
     Data * vetor10000 = vetorRandomData(10000, vetorDeDados); ///Tamanho da Hash = 102.643
+    cout<<"testev 3"<<endl;
     Data * vetor50000 = vetorRandomData(50000, vetorDeDados); ///Tamanho da Hash = 508.727
+    cout<<"testev 4"<<endl;
     Data * vetor100000 = vetorRandomData(100000, vetorDeDados); ///Tamanho da Hash = 1.002.553
+    cout<<"testev 5"<<endl;
     Data * vetor500000 = vetorRandomData(500000, vetorDeDados); ///Tamanho da Hash = 5.028.733
+    cout<<"teste final"<<endl;
 
     int H1k = 10909;
     int H5k = 50227;
@@ -309,7 +315,7 @@ void PT1_Cenario_4()
 
 
     ///  ---------------------------------------- FIM DOS TESTES PARA TRATAMENTO DUPLO HASH ---------------------------------------- ///
-    cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO DUPLO HASH -------- ///"<<endl; 
+    cout<<"///  -------- FIM DOS TESTES PARA TRATAMENTO DUPLO HASH -------- ///"<<endl;
 
     cout<<endl;
     cout<<endl;
