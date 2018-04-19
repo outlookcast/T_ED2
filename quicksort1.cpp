@@ -161,7 +161,7 @@ void quicksort(Data *vetor, int inicio, int fim, int *comparacoes, int *numCopia
    		    vetor[superior].userID = userID;
     		vetor[superior].date = date;
     		vetor[superior].score = score;
-    		vetor[superior].title = title;			
+    		vetor[superior].title = title;
 			inferior++;
 			superior--;
             *numCopias += 1;
@@ -176,7 +176,6 @@ void quicksort(Data *vetor, int inicio, int fim, int *comparacoes, int *numCopia
     date = vetor[inicio].date;
    	score = vetor[inicio].score;
     title = vetor[inicio].title;
-
     vetor[inicio].questionID = vetor[superior].questionID;
     vetor[inicio].userID = vetor[superior].userID;
     vetor[inicio].date = vetor[superior].date;
@@ -187,7 +186,7 @@ void quicksort(Data *vetor, int inicio, int fim, int *comparacoes, int *numCopia
    	vetor[superior].userID = userID;
     vetor[superior].date = date;
     vetor[superior].score = score;
-    vetor[superior].title = title;	
+    vetor[superior].title = title;
     *numCopias += 1;
 
     if(inicio <  superior - 1)
@@ -237,4 +236,90 @@ void quicksort(Data *vetor, int n,  int *comparacoes, int *numCopias)
     quicksort(vetor, 0, n-2, comparacoes, numCopias);
 }
 
+void quicksort(FrequnciaTag *vetor, int inicio, int fim)
+{
+  if(inicio == fim)
+      return;
 
+  int meio = (inicio + fim)/2;     // seleciona o pivo.
+  swap(&vetor[inicio], &vetor[meio]);
+
+  int pivo = vetor[inicio].frequencia;
+
+  int inferior = inicio + 1;
+  int superior = fim;
+
+  while(inferior <= superior)
+  {
+
+      while(vetor[inferior].frequencia < pivo)
+      {
+          inferior += 1;
+
+
+      }
+
+      while(vetor[superior].frequencia > pivo)
+      {
+          superior -= 1;
+
+      }
+
+
+      if(inferior < superior)
+      {
+          swap(&vetor[inferior++], &vetor[superior--]);
+
+      }
+      else
+          inferior += 1;
+  }
+  swap(&vetor[inicio], &vetor[superior]);
+
+
+  if(inicio <  superior - 1)
+      quicksort(vetor, inicio, superior-1);
+
+  if(superior+1 < fim)
+      quicksort(vetor, superior+1, fim);
+
+
+
+}
+
+void quicksort(FrequnciaTag *vetor, int n)
+{
+  int maior = 0;
+
+  // Acha o maior elemento
+  for(int i = 1; i < n; ++i)
+  {
+
+      if(vetor[i].frequencia > vetor[maior].frequencia)
+      {
+          maior = i;
+
+      }
+
+  }
+
+
+  swap(&vetor[maior], &vetor[n-1]);//coloca o maior elemento no final do vetor.
+
+  quicksort(vetor, 0, n-2);
+
+}
+
+void swap(FrequnciaTag *valor1, FrequnciaTag *valor2)
+{
+  FrequnciaTag temp;
+  temp.frequencia = valor1->frequencia;
+  temp.tag = valor1->frequencia;
+
+  valor1->frequencia = valor2->frequencia;
+  valor1->tag = valor1->tag;
+
+  valor2->frequencia = temp.frequencia;
+  valor2->tag = temp.tag;
+
+}
