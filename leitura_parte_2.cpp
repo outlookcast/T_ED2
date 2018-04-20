@@ -12,6 +12,16 @@
 #include "HashEncad.h"
 #include "Tags.h"
 
+unsigned long lrand() ///Em alguns compiladores a função rand() é limitada em 32767, então usamos essa função para retornar um valor randomizado maior.
+{
+    unsigned long r = 0;
+    for (int i = 0; i < 5; ++i)
+    {
+        r = (r << 15) | (rand() & 0x7FFF);
+    }
+    return r & 0xFFFFFFFFFFFFFFFFULL;
+}
+
 using namespace std;
 
 Tags * leituraParte2()
@@ -20,11 +30,11 @@ Tags * leituraParte2()
     ifstream ip("Tags.csv");
     if(!ip.is_open())
     {
-        std::cout << "ERROR: Could not open file" << endl;
+        std::cout << "Não foi possível abrir o arquivo." << endl;
     }
     else
     {
-        cout<<"Reading file..."<<endl;
+        cout<<"Lendo o arquivo Tags.csv..."<<endl;
         string trash; ///String para armazenar string que nao usaremos
         string QuestionID;
         string Tag;
@@ -55,6 +65,7 @@ Tags * leituraParte2()
 
 Tags * leituraRandomParte2Aux(int num, Tags * tags)
 {
+    srand(time(NULL));
     Tags *randomArray = new Tags[num];
     int j;
     int *vet = new int[1885079];
@@ -62,10 +73,10 @@ Tags * leituraRandomParte2Aux(int num, Tags * tags)
         vet[i]=0;
     for (int i=0; i<num;)
     {
-        j = rand() % 1885078;
+        j = lrand() % 1885078;
         while(vet[j]==-1)
         {
-            j = rand() % 1885078;
+            j = lrand() % 1885078;
         }
         vet[j] == -1;
         randomArray[i].setQuestionID(tags[j].getQuestionID());

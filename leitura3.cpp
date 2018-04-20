@@ -16,12 +16,12 @@ Answer* readFile3()
     ifstream ip("Answers.csv");
     if(!ip.is_open())
     {
-        std::cout << "ERROR: Could not open file" << endl;
+        std::cout << "Não foi possível abrir o arquivo." << endl;
         return answer;
     }
     else
     {
-        cout<<"Reading file..."<<endl;
+        cout<<"Lendo o arquivo aswers.csv..."<<endl;
         string answerID;
         string userID;
         string date;

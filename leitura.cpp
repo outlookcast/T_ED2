@@ -11,6 +11,7 @@
 #include "leitura.h"
 #include "HashEncad.h"
 #include "time.h"
+
 unsigned long llrand() ///Em alguns compiladores a função rand() é limitada em 32767, então usamos essa função para retornar um valor randomizado maior.
 {
     unsigned long r = 0;
@@ -20,6 +21,7 @@ unsigned long llrand() ///Em alguns compiladores a função rand() é limitada em 3
     }
     return r & 0xFFFFFFFFFFFFFFFFULL;
 }
+
 Data* readFile()
 {
     int tam = 607357;
@@ -28,12 +30,12 @@ Data* readFile()
 
     if(!ip.is_open())
     {
-        std::cout << "ERROR: Could not open file" << endl;
+        std::cout << "Não foi possível abrir o arquivo." << endl;
         return data;
     }
     else
     {
-        cout<<"Reading file..."<<endl;
+        cout<<"Lendo o arquivo questions.csv..."<<endl;
         string ID;
         string OwnerUserId;
         string CreationDate;
