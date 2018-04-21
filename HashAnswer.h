@@ -2,6 +2,10 @@
 #define HASHANSWER_H_INCLUDED
 #include "answer.h"
 #include "HashInt.h"
+#include <vector>
+#include "FrequenciaTag.h"
+
+using namespace std;
 
 class HashAnswer
 {
@@ -22,7 +26,7 @@ public:
     void inserir(Answer answer);
     void imprimir();
     int frenquenciaUsuario(Answer user);
-    void frequenciaDeTodosUsuarios();
+    vector<FrequenciaTag> frequenciaDeTodosUsuarios();
 };
 
 

@@ -314,10 +314,10 @@ void swap(FrequenciaTag *valor1, FrequenciaTag *valor2)
 {
   FrequenciaTag temp;
   temp.frequencia = valor1->frequencia;
-  temp.tag = valor1->frequencia;
+  temp.tag = valor1->tag;
 
   valor1->frequencia = valor2->frequencia;
-  valor1->tag = valor1->tag;
+  valor1->tag = valor2->tag;
 
   valor2->frequencia = temp.frequencia;
   valor2->tag = temp.tag;

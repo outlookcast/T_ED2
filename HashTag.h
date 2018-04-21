@@ -4,6 +4,9 @@
 #include "Tags.h"
 #include <stdlib.h>
 #include "HashString.h"
+#include "FrequenciaTag.h"
+#include <vector>
+
 class HashTag
 {
 private:
@@ -15,10 +18,11 @@ private:
 
 public:
     HashTag(int tam);
+    int numTagsNaoRepetidas;
     ~HashTag();
     void inserir(Tags tag);
     int frenquenciaTag(Tags tag);
-    void frequenciaDeTodasTags();
+    vector<FrequenciaTag> frequenciaDeTodasTags();
 };
 
 #endif // HASHTAG_H_INCLUDED

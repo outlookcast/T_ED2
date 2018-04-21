@@ -20,14 +20,16 @@
 #include "HashString.h"
 #include "HashTagBusca.h"
 #include "HashBuscaAnswer.h"
-
+#include "quickSort1.h"
 
 using namespace std;
 
 void Parte2 ()
 {
-    cout<<"FREQUÊNCIA DE TAGS"<<endl;
-    cout<<"Digite o valor de Tag para ler: "<<endl;
+    cout<<"FREQUÊNCIA DE USUARIOS"<<endl;
+    ofstream saidaT;
+    saidaT.open("saidaUsers.txt");
+    cout<<"Digite a quantidade de itens do QuestionsID que deseja ler: "<<endl;
     int tam;
     cin>>tam;
     HashBuscaAnswer * hash = new HashBuscaAnswer(1387272);
@@ -52,15 +54,39 @@ void Parte2 ()
         }
     }
 
-    hashLeitura->frequenciaDeTodosUsuarios();
+    vector<FrequenciaTag> vetor = hashLeitura->frequenciaDeTodosUsuarios();
 
+    FrequenciaTag * array = new FrequenciaTag[vetor.size()];
+    FrequenciaTag * array2 = new FrequenciaTag[vetor.size()];
+    int k = vetor.size() -1;
+    for(int i=0;i<vetor.size();i++)
+    {
+        array[i].frequencia = vetor[i].frequencia;
+        array[i].tag = vetor[i].tag;
+    }
+    quicksort(array,vetor.size());
+    for(int i=0;i<vetor.size();i++)
+    {
+        array2[i].frequencia = array[k].frequencia;
+        array2[i].tag = array[k].tag;
+        k--;
+    }
+
+    for(int i=0;i<vetor.size();i++)
+        saidaT<<array2[i].tag<<" "<<array2[i].frequencia<<endl;
+
+
+    delete [] array;
+    delete [] array2;
     delete hashLeitura;
     delete [] data;
     delete [] anser;
     delete hash;
-    cout<<"PARTE FREQUÊNCIA DE USUÁRIOS"<<endl;
-    cout<<"Digite o numero de Answer a ler: "<<endl;
-    cin>>tam;
+
+
+    cout<<"PARTE FREQUÊNCIA DE TAGS"<<endl;
+    ofstream saida;
+    saida.open("saidaTags.txt");
     Tags * arrayDeTags = leituraParte2();
     HashTagBusca * hashBusca = new HashTagBusca(2985079);
     HashTag * frequencia = new HashTag(tam*9);
@@ -70,7 +96,8 @@ void Parte2 ()
     int questId = data2[0].getQuestionID();
 
     for(int i=0; i<tam; i++)
-    {   questId = data2[i].getQuestionID();
+    {
+        questId = data2[i].getQuestionID();
         list<string> lista = hashBusca->busca(questId);
         for (list<string>::iterator i = lista.begin(); i != lista.end(); ++i)
         {
@@ -78,13 +105,32 @@ void Parte2 ()
             frequencia->inserir(tagAux);
         }
     }
-
-    frequencia->frequenciaDeTodasTags();
-
-
-
+    vector<FrequenciaTag> aux2 = frequencia->frequenciaDeTodasTags();
+    FrequenciaTag * auxTag = new FrequenciaTag[aux2.size()];
+    FrequenciaTag * auxTag2 = new FrequenciaTag[aux2.size()];
+    int j = aux2.size()-1;
+    ///Copiando do vector para o array
+    for(int i=0; i<aux2.size(); i++)
+    {
+        auxTag[i].frequencia = aux2[i].frequencia;
+        auxTag[i].tag = aux2[i].tag;
+    }
+    quicksort(auxTag, aux2.size());
+    saida<<"Frequência de TAGS: ";
+    saida<<endl;
+    saida<<endl;
+    for(int i=0;i<aux2.size();i++)
+    {
+        auxTag2[i].frequencia = auxTag[j].frequencia;
+        auxTag2[i].tag = auxTag[j].tag;
+        j--;
+    }
+    for(int i=0;i<aux2.size();i++)
+        saida<<auxTag2[i].tag<<" "<<auxTag2[i].frequencia<<endl;
+    saida.close();
+    delete [] auxTag2;
     delete [] data2;
-    delete [] aux;
+    delete [] auxTag;
     delete [] arrayDeTags;
     delete frequencia;
     delete hashBusca;

@@ -90,7 +90,6 @@ void PT1_Cenario_2()
 
 
 
-		cout<<"Saída no arquivo saida.txt"<<endl;
 		saida<<"\nTam = "<<vetor[i]<<"\n\n    QuickSorteRec:\n     Numero de comparacoes Medio: "<<comparacaoQuick1<<"\n     Numero de trocas Medio:"<<trocaQuick1<<"\n     Tempo Medio: "<<tempoQuick1<<endl;
 		saida<<"\n\n    QuickSorteMediana:\n     Numero de comparacoes Medio: "<<comparacaoQuick2<<"\n     Numero de trocas Medio:"<<trocaQuick2<<"\n     Tempo Medio: "<<tempoQuick2<<endl;
 		saida<<"\n\n    QuickSorteInser:\n     Numero de comparacoes Medio: "<<comparacaoQuick3<<"\n     Numero de trocas Medio:"<<trocaQuick3<<"\n     Tempo Medio: "<<tempoQuick3<<endl;

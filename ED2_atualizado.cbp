@@ -80,6 +80,8 @@
 		<Unit filename="merge.cpp" />
 		<Unit filename="merge.h" />
 		<Unit filename="parte1.cpp" />
+		<Unit filename="parte2.cpp" />
+		<Unit filename="parte2.h" />
 		<Unit filename="quickSort1.h" />
 		<Unit filename="quickSort2.cpp" />
 		<Unit filename="quickSort2.h" />

@@ -15,6 +15,7 @@ HashTag::HashTag(int tam)
     this->array = new Tags[this->tam];
     this->qnt = 0;
     this->numColisoes = 0;
+    this->numTagsNaoRepetidas = 0;
 }
 
 HashTag::~HashTag()
@@ -99,10 +100,11 @@ int HashTag::frenquenciaTag(Tags tag)
 }
 
 
-void HashTag::frequenciaDeTodasTags()
+vector<FrequenciaTag> HashTag::frequenciaDeTodasTags()
 {
     HashString * hash = new HashString(this->tam);
-    int numTagsNaoRepetidas = 0;
+    this->numTagsNaoRepetidas = 0;
+    vector<FrequenciaTag> vetor;
     for(int i=0; i<this->tam; i++)
     {
         if(this->array[i].getQuestionID() != -1 && this->array[i].getTag() != "-1")
@@ -110,11 +112,15 @@ void HashTag::frequenciaDeTodasTags()
             if(hash->busca(this->array[i].getTag()) == false)
             {
                 hash->inserir(this->array[i].getTag());
-                cout<<"Frequencia da Tag "<<this->array[i].getTag()<<": "<<this->frenquenciaTag(this->array[i])<<endl;
-                numTagsNaoRepetidas++;
+                FrequenciaTag a;
+                a.frequencia = this->frenquenciaTag(this->array[i]);
+                a.tag = this->array[i].getTag();
+                vetor.push_back(a);
+                this->numTagsNaoRepetidas++;
             }
         }
     }
-    cout<<"Numero de tags sem repeticao: "<<numTagsNaoRepetidas<<endl;
+
     delete hash;
+    return vetor;
 }

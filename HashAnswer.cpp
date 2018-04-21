@@ -4,6 +4,8 @@
 #include "answer.h"
 #include "HashInt.h"
 #include <iterator>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -60,10 +62,11 @@ void HashAnswer::trataColisao(Answer answer,int posicao)
     this->array[posicao].inserirNaLista(answer);
 }
 
-void HashAnswer::frequenciaDeTodosUsuarios()
+vector<FrequenciaTag> HashAnswer::frequenciaDeTodosUsuarios()
 {
     HashInt * hash = new HashInt(this->qnt,1);
     int numUsuariosNaoRepetidos = 0;
+    vector<FrequenciaTag> vetor;
     for(int i=0; i<this->tam; i++)
     {
         if(this->array[i].getUserID() != -1 && this->array[i].getQuestionID() != -1)
@@ -71,13 +74,19 @@ void HashAnswer::frequenciaDeTodosUsuarios()
             if(hash->busca(this->array[i].getUserID()) == false)
             {
                 hash->inserir(this->array[i].getUserID());
-                cout<<"Frequencia do Usuario "<<this->array[i].getUserID()<<": "<<this->frenquenciaUsuario(this->array[i])<<endl;
+                FrequenciaTag a;
+                stringstream ss;
+                ss << this->array[i].getUserID();
+                string str = ss.str();
+                a.tag = str;
+                a.frequencia = this->frenquenciaUsuario(this->array[i]);
+                vetor.push_back(a);
                 numUsuariosNaoRepetidos++;
             }
         }
     }
-    cout<<"Numero de Usuarios nao repetidos: "<<numUsuariosNaoRepetidos<<endl;
     delete hash;
+    return vetor;
 }
 
 int HashAnswer::frenquenciaUsuario(Answer user)
