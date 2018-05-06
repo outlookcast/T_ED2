@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1525618149 source:c:\users\phelipe\documents\t_ed2\answer.cpp
+	"answer.h"
+	<vector>
+
+1525618149 c:\users\phelipe\documents\t_ed2\answer.h
+	<iostream>
+	<list>
+
+1525618149 source:c:\users\phelipe\documents\t_ed2\data.cpp
+	<iostream>
+	"Data.h"
+
+1525618149 c:\users\phelipe\documents\t_ed2\data.h
+	<iostream>
+
+1525619889 source:c:\users\phelipe\documents\t_ed2\leitura.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	<cstdlib>
+	"Data.h"
+	<stdlib.h>
+	"leitura.h"
+	"time.h"
+
+1525619940 c:\users\phelipe\documents\t_ed2\leitura.h
+	<fstream>
+	"Data.h"
+	"answer.h"
+
+1525618149 source:c:\users\phelipe\documents\t_ed2\leitura3.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<ctime>
+	<cstdlib>
+	<vector>
+	<stdlib.h>
+	"leitura3.h"
+	"answer.h"
+
+1525618149 c:\users\phelipe\documents\t_ed2\leitura3.h
+	"fstream"
+	"answer.h"
+
+1525619950 source:c:\users\phelipe\documents\t_ed2\main.cpp
+	<iostream>
+	<fstream>
+

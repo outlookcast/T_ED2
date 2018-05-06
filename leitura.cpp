@@ -1,15 +1,10 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <ctime>
 #include <cstdlib>
-#include <vector>
 #include "Data.h"
-#include "Hash.h"
 #include <stdlib.h>
-#include "quickSort1.h"
 #include "leitura.h"
-#include "HashEncad.h"
 #include "time.h"
 
 unsigned long llrand() ///Em alguns compiladores a função rand() é limitada em 32767, então usamos essa função para retornar um valor randomizado maior.

@@ -3,7 +3,6 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
-#include <vector>
 #include <stdlib.h>
 #include "leitura3.h"
 #include "answer.h"
